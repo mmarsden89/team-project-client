@@ -1,12 +1,12 @@
 'use strict'
 const store = require('../../store')
 
-const loggedIn = function () {
-  if (store.user !== null) {
+const blogOwned = function (blog) {
+  if (blog === store.user.id) {
     return true
   } else {
     return false
   }
 }
 
-module.exports = loggedIn
+module.exports = blogOwned

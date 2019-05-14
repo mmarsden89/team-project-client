@@ -1,5 +1,5 @@
 const store = require('./../store.js')
-const showBlogsTemplate = require('./templates/blog-listing.handlebars')
+const showBlogsTemplate = require('../templates/blog-listing.handlebars')
 
 const getBlogSuccess = function (data, comments) {
   store.blogs = data.blogs

@@ -7,7 +7,9 @@
         <p class="card-text blog-text">{{limit blog.text 35}}</p>
       </div>
       <div id="loggedInButtonWrapper" class="loggedInButtonWrapper">
+        {{#if blogOwned}}
     <button data-id="{{blog.id}}" class="btn btn-outline-dark">Update</button>
+        {{/if}}
     <button data-id="{{blog.id}}" class="btn btn-outline-dark">Comments</button>
   </div>
   </div>
@@ -19,8 +21,6 @@
         <h5 class="card-title">{{blog.title}}</h5>
         <p class="card-text blog-text">{{limit blog.text 35}}</p>
       </div>
-      <div id="loggedInButtonWrapper" class="loggedInButtonWrapper">
-    <button data-id="{{blog.id}}" class="btn btn-outline-dark">Update</button>
     <button data-id="{{blog.id}}" class="btn btn-outline-dark">Comments</button>
   </div>
   </div>
