@@ -3,6 +3,7 @@ const store = require('./../store.js')
 const signUpSuccess = function (data) {
   console.log('success')
   $('form').trigger('reset')
+  $('#sign-up-form').hide()
 }
 
 const signUpFailure = function (data) {
@@ -14,6 +15,7 @@ const signInSuccess = function (data) {
   console.log('success')
   store.user = data.user
   $('form').trigger('reset')
+  $('#login-form').hide()
 }
 
 const signInFailure = function (data) {
