@@ -10,7 +10,7 @@
         {{#if blogOwned}}
     <button data-id="{{blog.id}}" class="btn btn-outline-dark">Update</button>
         {{/if}}
-    <button data-id="{{blog.id}}" class="btn btn-outline-dark">Logged In</button>
+    <button data-id="{{blog.id}}" class="comments-button btn btn-outline-dark">Comments</button>
   </div>
   </div>
   </section>
@@ -21,7 +21,10 @@
         <h5 class="card-title">{{blog.title}}</h5>
         <p class="card-text blog-text">{{limit blog.text 35}}</p>
       </div>
-    <button data-id="{{blog.id}}" class="btn btn-outline-dark">Not Logged In</button>
+    <button data-id="{{blog.id}}" class="comments-button btn btn-outline-dark">Comments</button>
+  </div>
+  <div id="comments-div" class="comments-body">
+    <p id="comment-text-space" class="comments-text"> </p>
   </div>
   </div>
   </section>
