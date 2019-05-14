@@ -1,17 +1,24 @@
 {{#each blogs as |blog|}}
+  {{#if loggedIn}}
   <section data-id="{{blog._id}}">
     <div class="card" style="width: 1000px; height: 290px;">
-  <div id="card-display" class="card-body">
-    <h5 class="card-title">{{blog.title}}</h5>
-    <p class="card-text blog-text">{{limit blog.text 35}}</p>
-    {{#each comments as |comment|}}
-    <div><p>
-    {{hasComments blog}}
-  </p>
-    </div>
-    {{/each}}
-    <button data-id="{{blog.id}}" class="btn btn-primary btn-sm update">Update</button>
+      <div id="card-display" class="card-body">
+        <h5 class="card-title">{{blog.title}}</h5>
+        <p class="card-text blog-text">{{limit blog.text 35}}</p>
+      </div>
+
+    <button data-id="{{blog.id}}" class="btn btn-outline-dark">Update</button>
   </div>
-</div>
   </section>
+  {{else}}
+  <section data-id="{{blog._id}}">
+    <div class="card" style="width: 1000px; height: 290px;">
+      <div id="card-display" class="card-body">
+        <h5 class="card-title">{{blog.title}}</h5>
+        <p class="card-text blog-text">{{limit blog.text 35}}</p>
+      </div>
+    <button data-id="{{blog.id}}" class="btn btn-outline-dark">Update</button>
+  </div>
+  </section>
+  {{/if}}
 {{/each}}
