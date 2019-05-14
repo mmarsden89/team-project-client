@@ -36,7 +36,7 @@ const onDestroyBlog = function (event) {
 
 const addHandlers = function (event) {
   $('#clicky').on('click', onGetBlogs)
-  $('#place').on('submit', onNewBlog)
+  $('#create-blog-form').on('submit', onNewBlog)
   $('#place').on('submit', onUpdateBlog)
   $('#place').on('submit', onDestroyBlog)
 }
