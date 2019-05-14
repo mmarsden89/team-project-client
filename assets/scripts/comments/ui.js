@@ -10,9 +10,9 @@ const getCommentSuccess = function (data) {
   console.log(store.comments)
 }
 
-const showComments = function () {
+const showComments = function (event) {
   const showCommentsHtml = showCommentsTemplate({ blogs: store.blogs, comments: store.comments })
-  $('.comments-text').html(showCommentsHtml)
+  $(event.target).html(showCommentsHtml)
 }
 
 const onCreateCommentSuccess = function (data) {

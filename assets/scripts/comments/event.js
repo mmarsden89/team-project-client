@@ -2,11 +2,11 @@ const getFormFields = require('./../../../lib/get-form-fields.js')
 const api = require('./api')
 const ui = require('./ui')
 
-const onGetComments = function () {
+const onGetComments = function (event) {
   event.preventDefault()
   api.getComments()
     .then(ui.getCommentSuccess)
-    .then(ui.showComments)
+    .then(ui.showComments(event))
     .catch(ui.getCommentFailure)
 }
 
