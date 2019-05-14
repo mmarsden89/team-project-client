@@ -1,4 +1,5 @@
 const store = require('./../store.js')
+const showCommentsTemplate = require('../templates/comment-listing.handlebars')
 
 const getCommentFailure = function (data) {
   console.log('whoops')
@@ -7,6 +8,11 @@ const getCommentFailure = function (data) {
 const getCommentSuccess = function (data) {
   store.comments = data.comments
   console.log(store.comments)
+}
+
+const showComments = function () {
+  const showCommentsHtml = showCommentsTemplate({ blogs: store.blogs, comments: store.comments })
+  $('.commentContent').html(showCommentsHtml)
 }
 
 const onCreateCommentSuccess = function (data) {
@@ -42,5 +48,6 @@ module.exports = {
   onUpdateCommentSuccess,
   onUpdateCommentFailure,
   onDestroyCommentSuccess,
-  onDestroyCommentFailure
+  onDestroyCommentFailure,
+  showComments
 }
