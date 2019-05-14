@@ -12,7 +12,7 @@ const getCommentSuccess = function (data) {
 
 const showComments = function () {
   const showCommentsHtml = showCommentsTemplate({ blogs: store.blogs, comments: store.comments })
-  $('.commentContent').html(showCommentsHtml)
+  $('.comments-text').html(showCommentsHtml)
 }
 
 const onCreateCommentSuccess = function (data) {
