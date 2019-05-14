@@ -3,8 +3,10 @@ const api = require('./api')
 const ui = require('./ui')
 
 const onGetComments = function () {
+  event.preventDefault()
   api.getComments()
     .then(ui.getCommentSuccess)
+    .then(ui.showComments)
     .catch(ui.getCommentFailure)
 }
 
@@ -34,7 +36,7 @@ const onDestroyComment = function (event) {
 }
 
 const addHandlers = function (event) {
-  $('#clicky').on('click', onGetComments)
+  $('#dumb').on('click', onGetComments)
   $('#place').on('submit', onNewComment)
   $('#place').on('submit', onUpdateComment)
   $('#place').on('submit', onDestroyComment)
