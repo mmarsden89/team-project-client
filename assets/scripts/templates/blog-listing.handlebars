@@ -1,0 +1,18 @@
+{{#each blogs as |blog|}}
+  <section data-id="{{blog.id}}">
+    <div class="card" style="width: 1000px; height: 290px;">
+  <div id="card-display" class="card-body">
+    <h5 class="card-title">{{blog.title}}</h5>
+    <p class="card-text blog-text">{{limit blog.text 35}}</p>
+    {{#each comments as |comment|}}
+    <div><p>
+    {{comment.text}}
+  </p>
+    </div>
+    {{/each}}
+    <button data-id="{{blog.id}}" class="btn btn-danger btn-sm delete">Complete</button>
+    <button data-id="{{blog.id}}" class="btn btn-primary btn-sm update">Update</button>
+  </div>
+</div>
+  </section>
+{{/each}}
