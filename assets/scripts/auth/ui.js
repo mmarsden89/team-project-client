@@ -1,4 +1,5 @@
 const store = require('./../store.js')
+const commentEvents = require('../comments/event')
 
 const signUpSuccess = function (data) {
   console.log('success')
@@ -9,13 +10,14 @@ const signUpSuccess = function (data) {
 }
 
 const signUpFailure = function (data) {
-  console.log('failure')
+  console.log('signup failure')
   $('form').trigger('reset')
 }
 
 const signInSuccess = function (data) {
   console.log('success')
   store.user = data.user
+  commentEvents.onGetComments()
   $('form').trigger('reset')
   $('#login-form').fadeOut(500)
   setTimeout(showAccountButtons, 525)
@@ -26,7 +28,7 @@ const showAccountButtons = function () {
 }
 
 const signInFailure = function (data) {
-  console.log('failure')
+  console.log('signin failure')
   $('form').trigger('reset')
 }
 
@@ -38,7 +40,7 @@ const changePasswordSuccess = function (data) {
 }
 
 const changePasswordFailure = function (data) {
-  console.log('failure')
+  console.log('changepass failure')
   $('form').trigger('reset')
 }
 
@@ -50,7 +52,7 @@ const signOutSuccess = function () {
 }
 
 const signOutFailure = function () {
-  console.log('failure')
+  console.log('signout failure')
   $('form').trigger('reset')
   store.user.token = null
   $('#account-buttons').fadeOut(500)
