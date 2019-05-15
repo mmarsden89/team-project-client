@@ -34,10 +34,15 @@ const onSignOut = function (event) {
 }
 
 const addHandlers = function (event) {
+  $('#account-buttons').hide()
+  $('#sign-up-form').hide()
+  $('#change-password').hide()
+  $('#login-to-signup').on('click', ui.loginToSignup)
+  $('#change-pass').on('click', ui.toChangePassword)
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
-  $('#logout').on('submit', onSignOut)
+  $('#logout').on('click', onSignOut)
 }
 
 module.exports = {
