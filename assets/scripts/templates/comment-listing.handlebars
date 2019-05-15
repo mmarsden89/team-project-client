@@ -1,0 +1,15 @@
+{{#each comments as |comment|}}
+{{log comment}}
+ {{#if (commentBelongsTo comment.blog)}}
+  <section data-comment="{{comment.id}}">
+    <p>
+      {{comment.owner.email}} <br>
+      <!-- {{comment.createdAt}} <br> -->
+      {{comment.text}}
+    </p>
+
+    <button data-comment="{{comment.id}}" class="btn btn-danger delete">Remove comment</button>
+    <button type="button" class="btn btn-primary">Update comment</button>
+</section>
+{{/if}}
+{{/each}}

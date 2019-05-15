@@ -1,18 +1,29 @@
 {{#each blogs as |blog|}}
-  <section data-id="{{blog.id}}">
+  {{#if (loggedIn)}}
+  <section data-blog="{{blog._id}}">
     <div class="card" style="width: 1000px; height: 290px;">
-  <div id="card-display" class="card-body">
-    <h5 class="card-title">{{blog.title}}</h5>
-    <p class="card-text blog-text">{{limit blog.text 35}}</p>
-    {{#each comments as |comment|}}
-    <div><p>
-    {{comment.text}}
-  </p>
-    </div>
-    {{/each}}
-    <button data-id="{{blog.id}}" class="btn btn-danger btn-sm delete">Complete</button>
-    <button data-id="{{blog.id}}" class="btn btn-primary btn-sm update">Update</button>
+      <div id="card-display" class="card-body">
+        <h5 class="card-title">{{blog.title}}</h5>
+        <p class="card-text blog-text">{{limit blog.text 35}}</p>
+      </div>
+      <div id="loggedInButtonWrapper" class="loggedInButtonWrapper">
+        {{#if (blogOwned)}}
+    <button data-blog="{{blog.id}}" class="btn btn-outline-dark">Update</button>
+    <button data-blog="{{blog._id}}" class="btn btn-danger">delete</button>
+    {{/if}}
+    <button data-blog="{{blog.id}}" class="comments-button btn btn-outline-dark">Comments</button>
   </div>
-</div>
+  </div>
   </section>
+  {{else}}
+  <section data-blog="{{blog._id}}">
+    <div class="card" style="width: 1000px; height: 290px;">
+      <div id="card-display" class="card-body">
+        <h5 class="card-title">{{blog.title}}</h5>
+        <p class="card-text blog-text">{{limit blog.text 35}}</p>
+      </div>
+      <div data-blog="{{blog.id}}" id={{blog._id}} class="comments-button btn btn-outline-dark commentHeight">Comments</div>
+  </div>
+  </section>
+  {{/if}}
 {{/each}}
