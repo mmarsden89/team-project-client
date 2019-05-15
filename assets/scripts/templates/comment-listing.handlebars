@@ -1,24 +1,18 @@
 {{#each comments as |comment|}}
+{{log comment}}
+ {{#if (commentBelongsTo comment.blog)}}
   <section data-id="{{comment.id}}">
-    <p id="comment-id">Blog Comment:</p>
-    <p>User:</p>
     <p>
-      {{comment.owner.email}}
-    </p>
-    <p>Date:</p>
-    <p>
-      {{comment.createdAt}}
-    </p>
-    <p>
+      {{comment.owner.email}} <br>
+      <!-- {{comment.createdAt}} <br> -->
       {{comment.text}}
     </p>
 
-  {{#if commentOwned}}
     <button data-id="{{comment.id}}" class="btn btn-danger delete">Remove comment</button>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateModal-{{comment.id}}">
+    <button type="button" class="btn btn-primary">
   Update comment
 </button>
-
+<!--
 <div class="modal fade" id="updateModal-{{comment.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -37,9 +31,7 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
-    </div>
-
-  {{/if}}
+    </div> -->
 </section>
-
+{{/if}}
 {{/each}}

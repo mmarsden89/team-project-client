@@ -12,6 +12,8 @@ const getCommentSuccess = function (data) {
 
 const showComments = function (event) {
   const showCommentsHtml = showCommentsTemplate({ blogs: store.blogs, comments: store.comments })
+  store.currentBlog = event.target.id
+  console.log(store.currentBlog)
   $(event.target).html(showCommentsHtml)
 }
 
