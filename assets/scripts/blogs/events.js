@@ -19,7 +19,7 @@ const onNewBlog = function (event) {
 
 const onUpdateBlog = function (event) {
   event.preventDefault()
-  const id = $(event.target).data('id')
+  const id = $(event.target).data('blog')
   const data = getFormFields(event.target)
   api.updateBlog(data, id)
     .then(ui.onUpdateBlogSuccess)
@@ -28,7 +28,9 @@ const onUpdateBlog = function (event) {
 
 const onDestroyBlog = function (event) {
   event.preventDefault()
-  const id = $(event.target).data('id')
+  console.log(event)
+  const id = $(event.target).data('blog')
+  console.log(id)
   api.destroyBlog(id)
     .then(ui.onDestroyBlogSuccess)
     .catch(ui.onDestroyBlogFailure)
@@ -38,7 +40,7 @@ const addHandlers = function (event) {
   $('#clicky').on('click', onGetBlogs)
   $('#create-blog-form').on('submit', onNewBlog)
   $('#place').on('submit', onUpdateBlog)
-  $('#place').on('submit', onDestroyBlog)
+  $('.content').on('click', '.btn-danger', onDestroyBlog)
 }
 
 module.exports = {

@@ -7,13 +7,17 @@ const getCommentFailure = function (data) {
 
 const getCommentSuccess = function (data) {
   store.comments = data.comments
+  console.log('============')
   console.log(store.comments)
+  console.log('============')
 }
 
 const showComments = function (event) {
   const showCommentsHtml = showCommentsTemplate({ blogs: store.blogs, comments: store.comments })
   store.currentBlog = event.target.id
+  console.log('!!!!!!!!!!!')
   console.log(store.currentBlog)
+  console.log('!!!!!!!!!!!')
   $(event.target).html(showCommentsHtml)
 }
 
