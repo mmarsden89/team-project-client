@@ -1,7 +1,7 @@
 'use strict'
 const store = require('../../store')
 
-const commentOwned = function (comment) {
+const commentBelongsTo = function (comment) {
   if (comment === store.currentBlog) {
     return true
   } else {
@@ -9,4 +9,4 @@ const commentOwned = function (comment) {
   }
 }
 
-module.exports = commentOwned
+module.exports = commentBelongsTo
