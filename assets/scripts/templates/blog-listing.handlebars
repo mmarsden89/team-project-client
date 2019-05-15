@@ -9,6 +9,11 @@
       <div id="loggedInButtonWrapper" class="loggedInButtonWrapper">
         {{#if (blogOwned)}}
     <button data-blog="{{blog._id}}" class="btn btn-outline-dark blog-update">Update</button>
+    <form data-blog="{{blog._id}}" class='update-form'>
+      <input type="text" name="blog[title]" placeholder="old title">
+      <input type="text" name="blog[text]" placeholder="old text">
+      <input type="submit">
+    </form>
     <button data-blog="{{blog._id}}" class="btn btn-danger">delete</button>
     {{/if}}
     <button data-blog="{{blog.id}}" class="comments-button btn btn-outline-dark commentHeight">Comments</button>
