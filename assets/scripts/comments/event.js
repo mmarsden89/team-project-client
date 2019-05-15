@@ -4,10 +4,9 @@ const ui = require('./ui')
 
 const onGetComments = function (event) {
   event.preventDefault()
-  const currentBlog = $(event.target).data('blog')
   api.getComments()
     .then(ui.getCommentSuccess)
-  //  .then(ui.showComments(event))
+    .then(ui.showComments(event))
     .catch(ui.getCommentFailure)
 }
 

@@ -2,7 +2,7 @@
 const store = require('../../store')
 
 const commentBelongsTo = function (comment) {
-  if (comment === store.currentBlog) {
+  if (comment.blog === store.currentBlog) {
     return true
   } else {
     return false
