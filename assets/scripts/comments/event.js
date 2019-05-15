@@ -2,11 +2,11 @@ const getFormFields = require('./../../../lib/get-form-fields.js')
 const api = require('./api')
 const ui = require('./ui')
 
-const onGetComments = function (event) {
-  event.preventDefault()
+const onGetComments = function () {
+  // event.preventDefault()
   api.getComments()
     .then(ui.getCommentSuccess)
-    .then(ui.showComments(event))
+    // .then(ui.showComments(event))
     .catch(ui.getCommentFailure)
 }
 
@@ -43,5 +43,6 @@ const addHandlers = function (event) {
 }
 
 module.exports = {
-  addHandlers
+  addHandlers,
+  onGetComments
 }

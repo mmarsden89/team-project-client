@@ -7,6 +7,14 @@
         <p class="card-text blog-text">{{limit blog.text 35}}</p>
       </div>
       <div id="loggedInButtonWrapper" class="loggedInButtonWrapper">
+        {{#each comments as |comment|}}
+          {{log comment}}
+        <section data-id="{{comment._id}}">
+          <p>
+            {{comment.text}}
+          </p>
+        </section>
+        {{/each}}
         {{#if (blogOwned blog.owner)}}
     <button data-blog="{{blog._id}}" class="btn btn-outline-dark blog-update">Update</button>
     <form data-blog="{{blog._id}}" class='update-form'>
