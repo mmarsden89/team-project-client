@@ -4,9 +4,10 @@ const ui = require('./ui')
 
 const onGetComments = function (event) {
   event.preventDefault()
+  const currentBlog = $(event.target).data('blog')
   api.getComments()
     .then(ui.getCommentSuccess)
-    .then(ui.showComments(event))
+  //  .then(ui.showComments(event))
     .catch(ui.getCommentFailure)
 }
 
@@ -20,7 +21,7 @@ const onNewComment = function (event) {
 
 const onUpdateComment = function (event) {
   event.preventDefault()
-  const id = $(event.target).data('id')
+  const id = $(event.target).data('comment')
   const data = getFormFields(event.target)
   api.updateComment(data, id)
     .then(ui.onUpdateCommentSuccess)
@@ -29,7 +30,7 @@ const onUpdateComment = function (event) {
 
 const onDestroyComment = function (event) {
   event.preventDefault()
-  const id = $(event.target).data('id')
+  const id = $(event.target).data('comment')
   api.destroyComment(id)
     .then(ui.onDestroyCommentSuccess)
     .catch(ui.onDestroyCommentFailure)

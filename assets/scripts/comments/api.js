@@ -4,7 +4,7 @@ const store = require('../store')
 
 const getComments = function () {
   return $.ajax({
-    url: config.apiUrl + '/comments',
+    url: config.apiUrl + `/comments`,
     method: 'GET',
     headers: {
     }
