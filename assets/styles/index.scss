@@ -1,7 +1,8 @@
 @import '~bootstrap/scss/bootstrap';
 
+
 body {
-  background-color: gray;
+  background-color: #BAD2FF;
 }
 
 section {
@@ -9,8 +10,10 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: rgb(33, 33, 33);
+  background-color: #7D7D7D;
+  margin: 40px 0 40px 0;
 }
+
 
 .blog-text-create {
   height: 120px;
@@ -46,7 +49,6 @@ section {
 }
 
 .hidden{
-
 }
 
 .commentHeight {
@@ -71,5 +73,10 @@ nav button, .nav-button {
 display: flex;
 flex-direction: column;
 align-items: center;
-padding: 28px;
+padding: 20px 0px 20px 0px;
+
+}
+
+.blog-text-create {
+margin: 20px 0px 20px 0px;
 }
