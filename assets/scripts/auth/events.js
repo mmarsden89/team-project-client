@@ -34,7 +34,10 @@ const onSignOut = function (event) {
 }
 
 const addHandlers = function (event) {
+  $('#create-blog-form').fadeOut()
   $('#account-buttons').hide()
+  $('#sign-up-back').on('click', ui.signUpBackUp)
+  $('#change-pw-back').on('click', ui.changePwBackUp)
   $('#sign-up-form').hide()
   $('#change-password').hide()
   $('#login-to-signup').on('click', ui.loginToSignup)

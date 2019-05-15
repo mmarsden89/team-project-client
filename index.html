@@ -20,6 +20,7 @@
       <input type="password" autocomplete="off" name="credentials[password]" placeholder="Password" class="sign-in-form">
       <input type="submit" autocomplete="off" value="Sign In!" class="sign-in-button">
       <button id="login-to-signup">Sign Up</button>
+
     </form>
     </div>
 
@@ -30,12 +31,14 @@
     <input type="password" name="credentials[password_confirmation]" placeholder="Password Confirmation" class="sign-up-form">
     <p id="signUpError" class="signInError"> </p>
     <input type="submit" id="buttonSignUp" value="Sign Up!" class="signUpButton submit-button">
+    <button id="sign-up-back">Back</button>
     </form>
     </div>
 
     <form id="change-password" class="passwordForm">
       <input type="password" name="passwords[old]" placeholder="old password" class="passinput">
       <input type="password" name="passwords[new]" placeholder="new password" class="passinput">
+        <button id="change-pw-back">Back</button>
       <button type="submit" class="changePassSub">submit</button>
     </form>
     <div id="account-buttons">
@@ -43,12 +46,13 @@
         <button id="logout">logout</button>
       </div>
     </nav>
-      <button id="clicky">oh hello</button>
+      <button id="clicky">Let's get started!</button>
+      <button id="blogs-back">Close dem blogs!</button>
 
 <div class="content"></div>
+<div class="comment-content"></div>
 
-<button id="create-blog">Create Blog</button>
-<form id="create-blog-form" class="hidden creating-blog">
+<form id="create-blog-form" class="hidden creating-blog wrapper">
   <input type="text" name="blog[title]" placeholder="Title" required="required" class="blog-title-create">
   <input type="text" name="blog[text]" placeholder="Text" required="required" class="blog-text-create">
   <input type="submit" class="blog-create-btn" value="Create Blog">

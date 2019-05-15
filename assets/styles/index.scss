@@ -12,6 +12,10 @@ section {
   background-color: rgb(33, 33, 33);
 }
 
+.blog-text-create {
+  height: 120px;
+}
+
 .login-form {
   display: flex;
   flex-direction: row;
@@ -61,4 +65,11 @@ nav {
 
 nav button, .nav-button {
   border-radius: 5px;
+}
+
+.wrapper {
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 28px;
 }
