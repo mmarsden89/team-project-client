@@ -19,8 +19,10 @@ const onNewBlog = function (event) {
 
 const onUpdateBlog = function (event) {
   event.preventDefault()
-  const id = $(event.target).data('blog')
+  const id = $(event.target).data('id')
+  console.log(id)
   const data = getFormFields(event.target)
+  console.log(data)
   api.updateBlog(data, id)
     .then(ui.onUpdateBlogSuccess)
     .catch(ui.onUpdateBlogFailure)

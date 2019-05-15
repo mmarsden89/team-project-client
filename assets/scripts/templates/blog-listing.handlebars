@@ -8,10 +8,10 @@
       </div>
       <div id="loggedInButtonWrapper" class="loggedInButtonWrapper">
         {{#if (blogOwned)}}
-    <button data-blog="{{blog.id}}" class="btn btn-outline-dark">Update</button>
+    <button data-blog="{{blog._id}}" class="btn btn-outline-dark blog-update">Update</button>
     <button data-blog="{{blog._id}}" class="btn btn-danger">delete</button>
     {{/if}}
-    <button data-blog="{{blog.id}}" class="comments-button btn btn-outline-dark">Comments</button>
+    <button data-blog="{{blog.id}}" class="comments-button btn btn-outline-dark commentHeight">Comments</button>
   </div>
   </div>
   </section>
