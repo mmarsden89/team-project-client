@@ -12,16 +12,16 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
+      <nav>
+
       <h1>Blog</h1>
-      <input id='new-user' class="newUserButton mybutton mybuttoncolor" type="submit" value="New User">
-      <input id='returning-user' class="mybutton mybuttoncolor" type="submit" value="Returning User">
+      <p id="auth-error" class="auth-error"></p>
       <div id="login-form" >
         <form id="sign-in" name="sign-in" class="login-container">
-      <h1></h1>
       <input type="email" name="credentials[email]" placeholder="Email" class="sign-in-form">
       <input type="password" autocomplete="off" name="credentials[password]" placeholder="Password" class="sign-in-form">
-      <p id="signInError" class="signInError"></p>
-      <input type="submit" autocomplete="off" value="Sign In!" class="sign-in-button">
+      <input type="submit" class="nav-button" autocomplete="off" value="Sign In!" class="sign-in-button">
+      <button id="login-to-signup">Sign Up</button>
     </form>
     </div>
 
@@ -30,20 +30,21 @@
     <input type="text" name="credentials[email]" placeholder="Email" class="sign-up-form">
     <input type="password" name="credentials[password]" placeholder="Password" class="sign-up-form">
     <input type="password" name="credentials[password_confirmation]" placeholder="Password Confirmation" class="sign-up-form">
-    <p id="signUpError" class="signInError"> </p>
-    <input type="submit" id="buttonSignUp" value="Sign Up!" class="signUpButton submit-button">
+    <input type="submit" id="buttonSignUp" value="Sign Up!" class="nav-button">
     </form>
     </div>
 
     <form id="change-password" class="passwordForm">
       <input type="password" name="passwords[old]" placeholder="old password" class="passinput">
       <input type="password" name="passwords[new]" placeholder="new password" class="passinput">
-      <p id="changePassError" class="signInError"> </p>
       <button type="submit" class="changePassSub">submit</button>
     </form>
-
+    <div id="account-buttons">
+    <button id="change-pass">change password</button>
     <button id="logout">logout</button>
-      <button id="clicky">oh hello</button>
+  </div>
+    </nav>
+    <button id="clicky">oh hello</button>
 <div class="content">
 
 </div>
