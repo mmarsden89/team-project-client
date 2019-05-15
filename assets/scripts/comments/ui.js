@@ -14,7 +14,7 @@ const showComments = function (event) {
   const showCommentsHtml = showCommentsTemplate({ blogs: store.blogs, comments: store.comments })
   store.currentBlog = event.target.id
   console.log(store.currentBlog)
-  setTimeout($(event.target).html(showCommentsHtml), 1000)
+  $(event.target).html(showCommentsHtml)
 }
 
 const onCreateCommentSuccess = function (data) {
