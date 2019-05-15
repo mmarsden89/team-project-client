@@ -9,6 +9,13 @@ const getBlogSuccess = function (data, comments) {
 const showBlogs = function () {
   const showBlogsHtml = showBlogsTemplate({ blogs: store.blogs, comments: store.comments })
   $('.content').html(showBlogsHtml)
+  $('#create-blog-form').fadeIn(500)
+  $('#blogs-back').fadeIn(500)
+}
+
+const blogsBack = function () {
+  $('.content').fadeOut(500)
+  $('#blogs-back').fadeOut(500)
 }
 
 const getBlogFailure = function () {
@@ -50,5 +57,6 @@ module.exports = {
   onUpdateBlogFailure,
   onDestroyBlogSuccess,
   onDestroyBlogFailure,
-  showBlogs
+  showBlogs,
+  blogsBack
 }

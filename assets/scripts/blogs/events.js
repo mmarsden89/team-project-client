@@ -40,7 +40,9 @@ const onDestroyBlog = function (event) {
 
 const addHandlers = function (event) {
   $('.content').on('submit', '.update-form', onUpdateBlog)
+  $('#blogs-back').fadeOut()
   $('#clicky').on('click', onGetBlogs)
+  $('#blogs-back').on('click', ui.blogsBack)
   $('#create-blog-form').on('submit', onNewBlog)
   $('#place').on('submit', onUpdateBlog)
   $('.content').on('click', '.btn-danger', onDestroyBlog)

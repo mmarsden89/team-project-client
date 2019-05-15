@@ -26,6 +26,8 @@
     {{/if}}
     <button data-blog="{{blog.id}}" class="comments-button btn btn-outline-dark commentHeight">Comments</button>
   </div>
+  <div class="comment-list">
+  </div>
   </div>
   </section>
   {{else}}
@@ -37,6 +39,7 @@
       </div>
       <div data-blog="{{blog.id}}" id={{blog._id}} class="comments-button btn btn-outline-dark commentHeight">Comments</div>
   </div>
+  <div class="comment-list">
   </section>
   {{/if}}
 {{/each}}

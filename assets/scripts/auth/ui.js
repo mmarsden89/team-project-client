@@ -59,6 +59,20 @@ const signOutFailure = function () {
   setTimeout(signInFade, 520)
 }
 
+const signUpBackUp = function () {
+  event.preventDefault()
+  $('form').trigger('reset')
+  $('#sign-up-form').fadeOut(500)
+  $('#login-form').fadeIn(500)
+}
+
+const changePwBackUp = function () {
+  event.preventDefault()
+  $('form').trigger('reset')
+  $('#change-password').fadeOut(500)
+  $('#account-buttons').fadeIn(500)
+}
+
 const signInFade = function () {
   $('#login-form').fadeIn(500)
 }
@@ -91,5 +105,7 @@ module.exports = {
   signOutSuccess,
   signOutFailure,
   loginToSignup,
-  toChangePassword
+  toChangePassword,
+  signUpBackUp,
+  changePwBackUp
 }
