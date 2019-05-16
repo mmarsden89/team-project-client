@@ -57,8 +57,10 @@ const onDestroyCommentFailure = function (data) {
   $('#user-div').fadeOut(8000)
 }
 
-const showCommentUpdateForm = function () {
-  store.currentUpdate = true
+const showCommentUpdateForm = function (event) {
+  store.currentUpdate = $(event.target).data('comment')
+  console.log('*****************')
+  console.log(store.currentUpdate)
 }
 
 module.exports = {
