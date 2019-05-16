@@ -7,6 +7,6 @@ const commentEvents = require('./comments/event')
 $(() => {
   authEvents.addHandlers()
   blogEvents.addHandlers()
-  blogEvents.onGetBlogsTimeout()
   commentEvents.addHandlers()
+  blogEvents.onGetBlogsTimeout()
 })

@@ -1,6 +1,7 @@
 const getFormFields = require('./../../../lib/get-form-fields.js')
 const api = require('./api')
 const ui = require('./ui')
+const comments = require('../comments/event')
 
 const onGetBlogs = function () {
   api.getBlogs()
@@ -36,9 +37,11 @@ const onDestroyBlog = function (event) {
 
 const onGetBlogsTimeout = function () {
   setTimeout(onGetBlogs, 500)
+  setTimeout(comments.onGetComments)
 }
 
 const addHandlers = function (event) {
+  window.setTimeout(ui.onOpen, 1000)
   $('.blog-create-btn').on('click', onGetBlogsTimeout)
   $('.content').on('submit', '.update-form', onUpdateBlog)
   $('#blogs-back').fadeOut()

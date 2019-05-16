@@ -1,6 +1,7 @@
 const store = require('./../store')
 const events = require('./events')
 const showBlogsTemplate = require('../templates/blog-listing.handlebars')
+const showBlogOpenTemplate = require('../templates/blog-open.handlebars')
 
 const getBlogSuccess = function (data, comments) {
   store.blogs = data.blogs
@@ -72,6 +73,11 @@ const onDestroyBlogFailure = function (data) {
   $('#user-div').fadeOut(8000)
 }
 
+const onOpen = function () {
+  const showBlogOpenHtml = showBlogOpenTemplate({ blogs: store.blogs, comments: store.comments })
+  $('.content').html(showBlogOpenHtml)
+}
+
 module.exports = {
   getBlogSuccess,
   getBlogFailure,
@@ -83,5 +89,6 @@ module.exports = {
   onDestroyBlogFailure,
   showBlogs,
   blogsBack,
-  blogUpdateButtonClick
+  blogUpdateButtonClick,
+  onOpen
 }
