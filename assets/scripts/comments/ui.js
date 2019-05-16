@@ -1,6 +1,8 @@
 const store = require('./../store.js')
 const showCommentsTemplate = require('../templates/comment-listing.handlebars')
 
+store.currentUpdate = null
+
 const getCommentFailure = function (data) {
   console.log('whoops')
 }
@@ -48,7 +50,6 @@ const onDestroyCommentFailure = function (data) {
 }
 
 const showCommentUpdateForm = function () {
-  store.currentUpdate = null
   store.currentUpdate = true
 }
 module.exports = {

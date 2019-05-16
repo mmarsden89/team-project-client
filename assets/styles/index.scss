@@ -67,6 +67,13 @@ section {
   height: 100px;
 }
 
+.content {
+  align-items: center;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+}
+
 .login-form {
   display: flex;
   flex-direction: row;

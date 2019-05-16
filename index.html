@@ -49,14 +49,21 @@
     </nav>
       <button id="clicky">Let's get started!</button>
       <button id="blogs-back">Close dem blogs!</button>
+      <section id="new-blog-section">
+        <div class="card" style="width: 1000px; height: 290px;">
+          <div id="card-display" class="card-body">
+            <div id="card-display" class="card-body">
+            <form id="create-blog-form" class="hidden creating-blog wrapper">
+              <input type="text" name="blog[title]" placeholder="Title" required="required" class="blog-title-create">
+              <input type="text" name="blog[text]" placeholder="Text" required="required" class="blog-text-create">
+              <input type="submit" class="blog-create-btn" value="Create Blog">
+            </form>
+            </div>
+          </div>
+        </div>
+    </section>
 
 <div class="content"></div>
 <div class="comment-content"></div>
-
-<form id="create-blog-form" class="hidden creating-blog wrapper">
-  <input type="text" name="blog[title]" placeholder="Title" required="required" class="blog-title-create">
-  <input type="text" name="blog[text]" placeholder="Text" required="required" class="blog-text-create">
-  <input type="submit" class="blog-create-btn" value="Create Blog">
-</form>
     </body>
 </html>

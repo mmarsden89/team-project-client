@@ -8,6 +8,7 @@ const getBlogSuccess = function (data, comments) {
 
 const showBlogs = function () {
   const showBlogsHtml = showBlogsTemplate({ blogs: store.blogs, comments: store.comments })
+  $('#new-blog-section').show()
   $('.content').html(showBlogsHtml)
   $('#create-blog-form').fadeIn(500)
   $('#blogs-back').fadeIn(500)

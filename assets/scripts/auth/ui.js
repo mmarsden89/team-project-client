@@ -15,7 +15,6 @@ const signUpFailure = function (data) {
 }
 
 const signInSuccess = function (data) {
-  console.log('success')
   store.user = data.user
   commentEvents.onGetComments()
   $('form').trigger('reset')
