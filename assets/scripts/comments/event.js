@@ -3,10 +3,8 @@ const api = require('./api')
 const ui = require('./ui')
 
 const onGetComments = function () {
-  // event.preventDefault()
   api.getComments()
     .then(ui.getCommentSuccess)
-    // .then(ui.showComments(event))
     .catch(ui.getCommentFailure)
 }
 

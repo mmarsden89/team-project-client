@@ -1,5 +1,6 @@
 const store = require('./../store.js')
 const commentEvents = require('../comments/event')
+const blogEvents = require('../blogs/events')
 
 const signUpSuccess = function (data) {
   console.log('success')
@@ -20,6 +21,7 @@ const signInSuccess = function (data) {
   $('form').trigger('reset')
   $('#login-form').fadeOut(500)
   setTimeout(showAccountButtons, 525)
+  blogEvents.onGetBlogsTimeout()
 }
 
 const showAccountButtons = function () {
