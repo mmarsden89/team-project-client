@@ -8,12 +8,10 @@ const getBlogSuccess = function (data, comments) {
 
 const showBlogs = function () {
   const showBlogsHtml = showBlogsTemplate({ blogs: store.blogs, comments: store.comments })
-  // $('#new-blog-section').show()
   $('.content').html(showBlogsHtml)
   $('#create-blog-form').fadeIn(500)
   $('#blogs-back').fadeIn(500)
   $('.content').fadeIn(500)
-  // $('.update-form').fadeOut(200)
 }
 
 const blogsBack = function () {
@@ -42,7 +40,6 @@ const onCreateBlogFailure = function (data) {
 
 const onUpdateBlogSuccess = function (data) {
   $('form').trigger('reset')
-  // showBlogs()
   $('#user-div').fadeIn(50)
   $('#user-div').html('Your blog has been updated!')
   $('#user-div').fadeOut(8000)
@@ -56,14 +53,12 @@ const onUpdateBlogFailure = function (data) {
 
 const blogUpdateButtonClick = function () {
   event.preventDefault()
-  // $('.update-form').fadeIn(250)
 }
 
 const onDestroyBlogSuccess = function (data) {
   $('#user-div').fadeIn(50)
   $('#user-div').html('Your blog has been destroyed!')
   $('#user-div').fadeOut(8000)
-  // showBlogs()
 }
 
 const onDestroyBlogFailure = function (data) {
