@@ -14,7 +14,7 @@ const blogOwned = function (blog) {
       console.log('blowowner is false')
       return false
     }
-}
+  }
 }
 
 module.exports = blogOwned
