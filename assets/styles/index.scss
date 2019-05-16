@@ -69,6 +69,8 @@ section {
   border-radius: 5px;
   margin-bottom: 30px;
   margin-top: 30px;
+  max-width: 1000px;
+  min-height: 290px;
 }
 
 .comments-text {
@@ -115,7 +117,6 @@ section {
 }
 
 .tiny {
-  overflow: hidden;
   width: 80vw;
 }
 
