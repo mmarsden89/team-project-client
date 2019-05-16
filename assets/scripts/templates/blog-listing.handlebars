@@ -34,7 +34,6 @@
 
     </ul>
       {{#if (commentOwned this.owner._id)}}
-      <!-- Unfortunately code right after here isnt functioning properly whoops  -->
         {{#if (commentUpdateClicked this._id)}}
         <form data-comment="{{comment._id}}" class='update-form-comment'>
           <input type="text" name="comment[text]" placeholder="old comment">
@@ -51,26 +50,4 @@
   </div>
   </section>
   {{/if}}
-<!--
-  {{#if (notLoggedIn)}}
-  {{log (notLoggedIn)}}
-  <section data-blog="{{blog._id}}">
-    <div class="card" style="width: 1000px; height: 290px;">
-      <div id="card-display" class="card-body">
-        <h5 class="card-title">{{blog.title}}</h5>
-        <p class="card-text blog-text">{{blog.text}}</p>
-      </div>
-      {{#each ../comments as |comment|}}
-      {{log 'hello world'}}
-      <div data-id="{{comment._id}}">
-        <div id="{{this._id}}" class="tiny">
-          {{this.owner.email}}
-          <br>
-          {{this.text}}
-      {{/each}}
-    </div>
-    </div>
-  </div>
-  </section>
-  {{/if}} -->
 {{/each}}

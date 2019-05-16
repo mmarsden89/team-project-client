@@ -61,8 +61,6 @@ const onDestroyCommentFailure = function (data) {
 
 const showCommentUpdateForm = function (event) {
   store.currentUpdate = $(event.target).data('comment')
-  console.log('*****************')
-  console.log(store.currentUpdate)
 }
 
 module.exports = {

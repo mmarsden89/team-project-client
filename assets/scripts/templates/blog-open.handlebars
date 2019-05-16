@@ -1,6 +1,5 @@
 {{#each blogs as |blog|}}
   {{#if (notLoggedIn)}}
-  {{log blog}}
   <section data-blog="{{blog._id}}">
     <div class="card" style="width: 1000px;">
       <div id="card-display" class="card-body">
@@ -9,7 +8,6 @@
       </div>
       {{#each ../comments as |comment|}}
       {{#if (commentBelongsTo blog._id comment.blog)}}
-      {{log 'hello world'}}
       <div data-id="{{this._id}}">
         <div id="{{this._id}}" class="tiny">
           {{this.owner.email}}
