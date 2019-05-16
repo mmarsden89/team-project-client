@@ -16,6 +16,7 @@ const onNewBlog = function (event) {
   api.createBlog(data)
     .then(ui.onCreateBlogSuccess)
     .catch(ui.onCreateBlogFailure)
+    api.getBlogs()
 }
 
 const onUpdateBlog = function (event) {
@@ -26,6 +27,8 @@ const onUpdateBlog = function (event) {
     .then(ui.onUpdateBlogSuccess)
     .catch(ui.onUpdateBlogFailure)
   api.onGetBlogs()
+  api.getBlogs()
+  api.getComments()
 }
 
 const onDestroyBlog = function (event) {
@@ -34,6 +37,7 @@ const onDestroyBlog = function (event) {
   api.destroyBlog(id)
     .then(ui.onDestroyBlogSuccess)
     .catch(ui.onDestroyBlogFailure)
+  api.getBlogs()
 }
 
 const onGetBlogsTimeout = function () {
