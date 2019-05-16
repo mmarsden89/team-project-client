@@ -48,7 +48,10 @@
   {{/each}}
   </div>
   </section>
-  {{else}}
+  {{/if}}
+
+  {{#if (notLoggedIn)}}
+  {{log (notLoggedIn)}}
   <section data-blog="{{blog._id}}">
     <div class="card" style="width: 1000px; height: 290px;">
       <div id="card-display" class="card-body">
@@ -56,6 +59,7 @@
         <p class="card-text blog-text">{{blog.text}}</p>
       </div>
       {{#each ../comments as |comment|}}
+      {{log 'hello world'}}
       <div data-id="{{comment._id}}">
         <div id="{{this._id}}" class="tiny">
           {{this.owner.email}}
