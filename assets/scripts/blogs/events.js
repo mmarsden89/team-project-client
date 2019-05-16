@@ -48,6 +48,7 @@ const addHandlers = function (event) {
   $('#place').on('submit', onUpdateBlog)
   $('.content').on('click', '.blog-delete', onDestroyBlog)
   $('.content').on('click', '.button', onGetBlogsTimeout)
+  $('.content').on('click', '.blog-update', ui.blogUpdateButtonClick)
 }
 
 module.exports = {

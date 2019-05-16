@@ -12,6 +12,8 @@ const showBlogs = function () {
   $('.content').html(showBlogsHtml)
   $('#create-blog-form').fadeIn(500)
   $('#blogs-back').fadeIn(500)
+  $('.content').fadeIn(500)
+  $('.update-form').fadeOut(20)
 }
 
 const blogsBack = function () {
@@ -20,28 +22,54 @@ const blogsBack = function () {
 }
 
 const getBlogFailure = function () {
+  $('#user-div').fadeIn(50)
+  $('#user-div').html('Something went wrong, please try again!')
+  $('#user-div').fadeOut(8000)
 }
 
 const onCreateBlogSuccess = function (data) {
   $('form').trigger('reset')
+  $('#user-div').fadeIn(50)
+  $('#user-div').html('Your blog has been created!')
+  $('#user-div').fadeOut(8000)
 }
 
 const onCreateBlogFailure = function (data) {
+  $('#user-div').fadeIn(50)
+  $('#user-div').html('Something went wrong, please try again!')
+  $('#user-div').fadeOut(8000)
 }
 
 const onUpdateBlogSuccess = function (data) {
   $('form').trigger('reset')
   showBlogs()
+  $('#user-div').fadeIn(50)
+  $('#user-div').html('Your blog has been updated!')
+  $('#user-div').fadeOut(8000)
 }
 
 const onUpdateBlogFailure = function (data) {
+  $('#user-div').fadeIn(50)
+  $('#user-div').html('Something went wrong, please try again!')
+  $('#user-div').fadeOut(8000)
+}
+
+const blogUpdateButtonClick = function () {
+  event.preventDefault()
+  $('.update-form').fadeIn(250)
 }
 
 const onDestroyBlogSuccess = function (data) {
+  $('#user-div').fadeIn(50)
+  $('#user-div').html('Your blog has been destroyed!')
+  $('#user-div').fadeOut(8000)
   showBlogs()
 }
 
 const onDestroyBlogFailure = function (data) {
+  $('#user-div').fadeIn(50)
+  $('#user-div').html('Something went wrong, please try again!')
+  $('#user-div').fadeOut(8000)
 }
 
 module.exports = {
@@ -54,5 +82,6 @@ module.exports = {
   onDestroyBlogSuccess,
   onDestroyBlogFailure,
   showBlogs,
-  blogsBack
+  blogsBack,
+  blogUpdateButtonClick
 }
