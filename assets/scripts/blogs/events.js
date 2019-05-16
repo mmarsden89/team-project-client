@@ -39,7 +39,7 @@ const onDestroyBlog = function (event) {
 }
 
 const onGetBlogsTimeout = function () {
-  setTimeout(onGetBlogs, 1000)
+  setTimeout(onGetBlogs, 500)
 }
 
 const addHandlers = function (event) {

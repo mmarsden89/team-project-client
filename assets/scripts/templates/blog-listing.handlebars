@@ -39,7 +39,6 @@
       </form>
         {{/if}}
       {{/if}}
-    </p>
   </div>
   {{/if}}
   {{/each}}
@@ -50,11 +49,18 @@
     <div class="card" style="width: 1000px; height: 290px;">
       <div id="card-display" class="card-body">
         <h5 class="card-title">{{blog.title}}</h5>
-        <p class="card-text blog-text">{{limit blog.text 35}}</p>
+        <p class="card-text blog-text">{{blog.text}}</p>
       </div>
-      <div data-blog="{{blog.id}}" id={{blog._id}} class="comments-button btn btn-outline-dark commentHeight">Comments</div>
+      {{#each ../comments as |comment|}}
+      <div data-id="{{comment._id}}">
+        <div id="{{this._id}}" class="tiny">
+          {{this.owner.email}}
+          <br>
+          {{this.text}}
+      {{/each}}
+    </div>
+    </div>
   </div>
-  <div class="comment-list">
   </section>
   {{/if}}
 {{/each}}

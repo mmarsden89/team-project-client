@@ -61,6 +61,7 @@ section {
 
 .blog-text-create {
   height: 120px;
+  margin: 20px 0;
 }
 
 .card {
@@ -104,10 +105,6 @@ section {
   opacity: 1;
 }
 
-.tiny {
-  overflow: hidden;
-  width: 60vw;
-}
 
 .loggedInButtonWrapper {
   align-items: center;
@@ -116,7 +113,10 @@ section {
   justify-content: center;
 }
 
-
+.tiny {
+  overflow: hidden;
+  width: 80vw;
+}
 
 .wrapper {
   align-items: center;
@@ -124,10 +124,6 @@ section {
   flex-direction: column;
   padding: 20px 0;
 
-}
-
-.blog-text-create {
-  margin: 20px 0;
 }
 
 .update-form-comment {
