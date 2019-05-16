@@ -15,6 +15,8 @@ const onNewComment = function (event) {
   api.createComment(id, data)
     .then(ui.onCreateCommentSuccess)
     .catch(ui.onCreateCommentFailure)
+  api.getBlogs()
+  api.getComments()
 }
 
 const onUpdateComment = function (event) {
@@ -25,6 +27,7 @@ const onUpdateComment = function (event) {
     .then(ui.onUpdateCommentSuccess)
     .then(onGetComments)
     .catch(ui.onUpdateCommentFailure)
+  api.getComments()
 }
 
 const onDestroyComment = function (event) {
@@ -33,6 +36,7 @@ const onDestroyComment = function (event) {
   api.destroyComment(id)
     .then(ui.onDestroyCommentSuccess)
     .catch(ui.onDestroyCommentFailure)
+  api.getComments()
 }
 
 const addHandlers = function (event) {

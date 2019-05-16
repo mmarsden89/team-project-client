@@ -1,5 +1,6 @@
 const store = require('./../store.js')
 const showCommentsTemplate = require('../templates/comment-listing.handlebars')
+const api = require(`./api.js`)
 
 store.currentUpdate = null
 
@@ -24,6 +25,7 @@ const onCreateCommentSuccess = function (data) {
   $('#user-div').fadeIn(50)
   $('#user-div').html('Your comment has been added!')
   $('#user-div').fadeOut(8000)
+  api.getComments()
 }
 
 const onCreateCommentFailure = function (data) {
