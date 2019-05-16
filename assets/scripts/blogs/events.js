@@ -25,6 +25,7 @@ const onUpdateBlog = function (event) {
   api.updateBlog(data, id)
     .then(ui.onUpdateBlogSuccess)
     .catch(ui.onUpdateBlogFailure)
+  api.onGetBlogs()
 }
 
 const onDestroyBlog = function (event) {
@@ -36,8 +37,8 @@ const onDestroyBlog = function (event) {
 }
 
 const onGetBlogsTimeout = function () {
+  comments.onGetComments()
   setTimeout(onGetBlogs, 500)
-  setTimeout(comments.onGetComments)
 }
 
 const addHandlers = function (event) {
