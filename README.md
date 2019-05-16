@@ -15,10 +15,9 @@ Sprints were utilized each day to ensure we hit goals and deadlines.
 
 Version control was managed with github team repos and frequent rebases and commits. Commits are available on the project github page.
 
-V1 Functioanlity:
-Users can post new projects with title, date, project owner
-contact email, and description. Anyone can view all open projects. Project
-owners and project owners only can update or delete projects.
+V1 Functionality:
+Users can post new blogs with title and text. Anyone can view blogs and comments.
+Comments have text and email.
 
 Dev Diary:
 Day 1:
