@@ -23,6 +23,7 @@ const onUpdateComment = function (event) {
   const data = getFormFields(event.target)
   api.updateComment(data, id)
     .then(ui.onUpdateCommentSuccess)
+    .then(onGetComments)
     .catch(ui.onUpdateCommentFailure)
 }
 
