@@ -5,7 +5,7 @@
       <div id="card-display" class="card-body">
         <h5 class="card-title">{{blog.title}}</h5>
         <p class="card-text blog-text">{{limit blog.text 35}}</p>
-      </div>
+        </div>
       <div id="loggedInButtonWrapper" class="loggedInButtonWrapper">
 
         {{#if (blogOwned blog.owner)}}
@@ -17,22 +17,25 @@
     </form>
     <button data-blog="{{blog._id}}" class="btn btn-danger blog-delete">delete</button>
     {{/if}}
-    <button data-blog="{{blog.id}}" class="comments-button btn btn-outline-dark commentHeight">Comments</button>
   </div>
   <div class="comment-list">
   </div>
   {{#each ../comments as |comment|}}
   {{#if (commentBelongsTo blog._id comment.blog)}}
-  <section data-id="{{comment._id}}">
+  <div data-id="{{comment._id}}">
     <div id="{{this._id}}" class="tiny">
+      {{this.owner.email}}
+      <br>
       {{this.text}}
+      {{#if (commentOwned this.owner._id)}}
       <button data-comment="{{comment._id}}" class="btn btn-danger comment-delete">delete</button>
       <form data-comment="{{comment._id}}" class='update-form-comment'>
         <input type="text" name="comment[text]" placeholder="old comment">
         <input type="submit">
       </form>
+      {{/if}}
     </p>
-  </section>
+  </div>
   {{/if}}
   {{/each}}
   </div>
