@@ -4,23 +4,44 @@
     <div class="card" style="width: 1000px; height: 290px;">
       <div id="card-display" class="card-body">
         <h5 class="card-title">{{blog.title}}</h5>
-        <p class="card-text blog-text">{{limit blog.text 35}}</p>
-      </div>
+        <p class="card-text blog-text">{{blog.text}}</p>
+        </div>
       <div id="loggedInButtonWrapper" class="loggedInButtonWrapper">
 
         {{#if (blogOwned blog.owner)}}
-    <button data-blog="{{blog._id}}" class="btn btn-outline-dark blog-update">Update</button>
+    <button data-blog="{{blog._id}}" class="btn btn-outline-dark blog-update button">Update</button>
     <form data-blog="{{blog._id}}" class='update-form'>
       <input type="text" name="blog[title]" placeholder="old title">
       <input type="text" name="blog[text]" placeholder="old text">
-      <input type="submit">
+      <input type="submit" class="button">
     </form>
-    <button data-blog="{{blog._id}}" class="btn btn-danger blog-delete">delete</button>
+    <button data-blog="{{blog._id}}" class="btn btn-danger blog-delete button">delete</button>
     {{/if}}
-    <button data-blog="{{blog.id}}" class="comments-button btn btn-outline-dark commentHeight">Comments</button>
   </div>
   <div class="comment-list">
   </div>
+  {{#each ../comments as |comment|}}
+  {{#if (commentBelongsTo blog._id comment.blog)}}
+  <div data-id="{{comment._id}}">
+    <div id="{{this._id}}" class="tiny">
+      {{this.owner.email}}
+      <br>
+      {{this.text}}
+      {{#if (commentOwned this.owner._id)}}
+      <!-- Unfortunately code right after here isnt functioning properly whoops  -->
+        {{#if (commentUpdateClicked)}}
+        <button data-comment="{{comment._id}}" id="{{comment._id}}" class="btn btn-outline-dark comment-update button">update</button>
+        <button data-comment="{{comment._id}}" class="btn btn-danger comment-delete button">delete</button>
+        {{else}}
+      <form data-comment="{{comment._id}}" class='update-form-comment'>
+        <input type="text" name="comment[text]" placeholder="old comment">
+        <input type="submit" class="button">
+      </form>
+        {{/if}}
+      {{/if}}
+  </div>
+  {{/if}}
+  {{/each}}
   </div>
   </section>
   {{else}}
@@ -28,21 +49,18 @@
     <div class="card" style="width: 1000px; height: 290px;">
       <div id="card-display" class="card-body">
         <h5 class="card-title">{{blog.title}}</h5>
-        <p class="card-text blog-text">{{limit blog.text 35}}</p>
+        <p class="card-text blog-text">{{blog.text}}</p>
       </div>
-      <div data-blog="{{blog.id}}" id={{blog._id}} class="comments-button btn btn-outline-dark commentHeight">Comments</div>
+      {{#each ../comments as |comment|}}
+      <div data-id="{{comment._id}}">
+        <div id="{{this._id}}" class="tiny">
+          {{this.owner.email}}
+          <br>
+          {{this.text}}
+      {{/each}}
+    </div>
+    </div>
   </div>
-  <div class="comment-list">
   </section>
   {{/if}}
-{{/each}}
-{{#each comments as |comment|}}
-<p>
-  {{this.text}}
-  <button data-comment="{{comment._id}}" class="btn btn-danger comment-delete">delete</button>
-  <form data-comment="{{comment._id}}" class='update-form-comment'>
-    <input type="text" name="comment[text]" placeholder="old comment">
-    <input type="submit">
-  </form>
-</p>
 {{/each}}

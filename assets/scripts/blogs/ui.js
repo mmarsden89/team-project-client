@@ -1,4 +1,5 @@
-const store = require('./../store.js')
+const store = require('./../store')
+const events = require('./events')
 const showBlogsTemplate = require('../templates/blog-listing.handlebars')
 
 const getBlogSuccess = function (data, comments) {
@@ -8,6 +9,7 @@ const getBlogSuccess = function (data, comments) {
 
 const showBlogs = function () {
   const showBlogsHtml = showBlogsTemplate({ blogs: store.blogs, comments: store.comments })
+  $('#new-blog-section').show()
   $('.content').html(showBlogsHtml)
   $('#create-blog-form').fadeIn(500)
   $('#blogs-back').fadeIn(500)
@@ -24,7 +26,6 @@ const getBlogFailure = function () {
 
 const onCreateBlogSuccess = function (data) {
   $('form').trigger('reset')
-  console.log('created')
 }
 
 const onCreateBlogFailure = function (data) {
@@ -34,6 +35,7 @@ const onCreateBlogFailure = function (data) {
 const onUpdateBlogSuccess = function (data) {
   $('form').trigger('reset')
   console.log('updated')
+  showBlogs()
 }
 
 const onUpdateBlogFailure = function (data) {
@@ -42,6 +44,7 @@ const onUpdateBlogFailure = function (data) {
 
 const onDestroyBlogSuccess = function (data) {
   console.log('destoyed')
+  showBlogs()
 }
 
 const onDestroyBlogFailure = function (data) {

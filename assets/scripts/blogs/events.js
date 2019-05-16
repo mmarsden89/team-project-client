@@ -38,7 +38,12 @@ const onDestroyBlog = function (event) {
     .catch(ui.onDestroyBlogFailure)
 }
 
+const onGetBlogsTimeout = function () {
+  setTimeout(onGetBlogs, 500)
+}
+
 const addHandlers = function (event) {
+  $('.blog-create-btn').on('click', onGetBlogsTimeout)
   $('.content').on('submit', '.update-form', onUpdateBlog)
   $('#blogs-back').fadeOut()
   $('#clicky').on('click', onGetBlogs)
@@ -46,8 +51,10 @@ const addHandlers = function (event) {
   $('#create-blog-form').on('submit', onNewBlog)
   $('#place').on('submit', onUpdateBlog)
   $('.content').on('click', '.blog-delete', onDestroyBlog)
+  $('.content').on('click', '.button', onGetBlogsTimeout)
 }
 
 module.exports = {
-  addHandlers
+  addHandlers,
+  onGetBlogsTimeout
 }
