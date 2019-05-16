@@ -10,8 +10,9 @@ const onGetComments = function () {
 
 const onNewComment = function (event) {
   event.preventDefault()
+  const id = $(event.target).data('blog')
   const data = getFormFields(event.target)
-  api.createComment(data)
+  api.createComment(id, data)
     .then(ui.onCreateCommentSuccess)
     .catch(ui.onCreateCommentFailure)
 }
@@ -34,7 +35,7 @@ const onDestroyComment = function (event) {
 }
 
 const addHandlers = function (event) {
-  $('#place').on('submit', onNewComment)
+  $('.content').on('submit', '.create-comment-form', onNewComment)
   $('.content').on('click', '.comment-update', ui.showCommentUpdateForm)
   $('.content').on('click', '.comments-button', onGetComments)
   $('.content').on('submit', '.update-form-comment', onUpdateComment)

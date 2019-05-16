@@ -19,6 +19,10 @@
     {{/if}}
   </div>
   <div class="comment-list">
+    <form data-blog="{{blog._id}}" class="create-comment-form">
+      <input type="text" name="comment[text]" placeholder="comment here">
+      <input type="submit">
+    </form>
   </div>
   {{#each ../comments as |comment|}}
   {{#if (commentBelongsTo blog._id comment.blog)}}
