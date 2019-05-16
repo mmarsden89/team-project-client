@@ -43,6 +43,7 @@ const onGetBlogsTimeout = function () {
 }
 
 const addHandlers = function (event) {
+  $('.blog-create-btn').on('click', onGetBlogsTimeout)
   $('.content').on('submit', '.update-form', onUpdateBlog)
   $('#blogs-back').fadeOut()
   $('#clicky').on('click', onGetBlogs)
@@ -54,5 +55,6 @@ const addHandlers = function (event) {
 }
 
 module.exports = {
-  addHandlers
+  addHandlers,
+  onGetBlogsTimeout
 }

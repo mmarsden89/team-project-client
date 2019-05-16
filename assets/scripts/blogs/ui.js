@@ -1,4 +1,5 @@
-const store = require('./../store.js')
+const store = require('./../store')
+const events = require('./events')
 const showBlogsTemplate = require('../templates/blog-listing.handlebars')
 
 const getBlogSuccess = function (data, comments) {
@@ -25,8 +26,6 @@ const getBlogFailure = function () {
 
 const onCreateBlogSuccess = function (data) {
   $('form').trigger('reset')
-  console.log('created')
-  showBlogs()
 }
 
 const onCreateBlogFailure = function (data) {
