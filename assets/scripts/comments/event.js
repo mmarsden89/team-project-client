@@ -39,7 +39,7 @@ const addHandlers = function (event) {
   $('.content').on('click', '.comments-button', onGetComments)
   $('#place').on('submit', onNewComment)
   $('#place').on('submit', onUpdateComment)
-  $('#place').on('submit', onDestroyComment)
+  $('.content').on('click', '.comment-delete', onDestroyComment)
 }
 
 module.exports = {

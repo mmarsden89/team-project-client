@@ -15,7 +15,7 @@
       <input type="text" name="blog[text]" placeholder="old text">
       <input type="submit">
     </form>
-    <button data-blog="{{blog._id}}" class="btn btn-danger">delete</button>
+    <button data-blog="{{blog._id}}" class="btn btn-danger blog-delete">delete</button>
     {{/if}}
     <button data-blog="{{blog.id}}" class="comments-button btn btn-outline-dark commentHeight">Comments</button>
   </div>
@@ -39,5 +39,6 @@
 {{#each comments as |comment|}}
 <p>
   {{this.text}}
+  <button data-comment="{{comment._id}}" class="btn btn-danger comment-delete">delete</button>
 </p>
 {{/each}}

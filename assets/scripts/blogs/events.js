@@ -45,7 +45,7 @@ const addHandlers = function (event) {
   $('#blogs-back').on('click', ui.blogsBack)
   $('#create-blog-form').on('submit', onNewBlog)
   $('#place').on('submit', onUpdateBlog)
-  $('.content').on('click', '.btn-danger', onDestroyBlog)
+  $('.content').on('click', '.blog-delete', onDestroyBlog)
 }
 
 module.exports = {
