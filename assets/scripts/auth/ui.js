@@ -20,6 +20,7 @@ const signUpFailure = function (data) {
 }
 
 const signInSuccess = function (data) {
+  $('#new-blog-section').show()
   store.user = data.user
   commentEvents.onGetComments()
   $('form').trigger('reset')
@@ -59,6 +60,7 @@ const changePasswordFailure = function (data) {
 }
 
 const signOutSuccess = function () {
+  $('#new-blog-section').hide()
   store.user.token = null
   $('#account-buttons').fadeOut(500)
   setTimeout(signInFade, 520)
