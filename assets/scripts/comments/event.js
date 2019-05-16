@@ -2,19 +2,17 @@ const getFormFields = require('./../../../lib/get-form-fields.js')
 const api = require('./api')
 const ui = require('./ui')
 
-const onGetComments = function (event) {
-  event.preventDefault()
-  const currentBlog = $(event.target).data('blog')
+const onGetComments = function () {
   api.getComments()
     .then(ui.getCommentSuccess)
-  //  .then(ui.showComments(event))
     .catch(ui.getCommentFailure)
 }
 
 const onNewComment = function (event) {
   event.preventDefault()
+  const id = $(event.target).data('blog')
   const data = getFormFields(event.target)
-  api.createComment(data)
+  api.createComment(id, data)
     .then(ui.onCreateCommentSuccess)
     .catch(ui.onCreateCommentFailure)
 }
@@ -37,12 +35,14 @@ const onDestroyComment = function (event) {
 }
 
 const addHandlers = function (event) {
-  $('.content').on('click', '.commentHeight', onGetComments)
-  $('#place').on('submit', onNewComment)
-  $('#place').on('submit', onUpdateComment)
-  $('#place').on('submit', onDestroyComment)
+  $('.content').on('submit', '.create-comment-form', onNewComment)
+  $('.content').on('click', '.comment-update', ui.showCommentUpdateForm)
+  $('.content').on('click', '.comments-button', onGetComments)
+  $('.content').on('submit', '.update-form-comment', onUpdateComment)
+  $('.content').on('click', '.comment-delete', onDestroyComment)
 }
 
 module.exports = {
-  addHandlers
+  addHandlers,
+  onGetComments
 }

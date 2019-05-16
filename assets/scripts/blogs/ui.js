@@ -1,44 +1,47 @@
-const store = require('./../store.js')
+const store = require('./../store')
+const events = require('./events')
 const showBlogsTemplate = require('../templates/blog-listing.handlebars')
 
 const getBlogSuccess = function (data, comments) {
   store.blogs = data.blogs
-  console.log(data.blogs)
 }
 
 const showBlogs = function () {
   const showBlogsHtml = showBlogsTemplate({ blogs: store.blogs, comments: store.comments })
+  $('#new-blog-section').show()
   $('.content').html(showBlogsHtml)
+  $('#create-blog-form').fadeIn(500)
+  $('#blogs-back').fadeIn(500)
+}
+
+const blogsBack = function () {
+  $('.content').fadeOut(500)
+  $('#blogs-back').fadeOut(500)
 }
 
 const getBlogFailure = function () {
-  console.log('whoops')
 }
 
 const onCreateBlogSuccess = function (data) {
   $('form').trigger('reset')
-  console.log('created')
 }
 
 const onCreateBlogFailure = function (data) {
-  console.log('failed to create')
 }
 
 const onUpdateBlogSuccess = function (data) {
   $('form').trigger('reset')
-  console.log('updated')
+  showBlogs()
 }
 
 const onUpdateBlogFailure = function (data) {
-  console.log('failed to update')
 }
 
 const onDestroyBlogSuccess = function (data) {
-  console.log('destoyed')
+  showBlogs()
 }
 
 const onDestroyBlogFailure = function (data) {
-  console.log('failed to destroy')
 }
 
 module.exports = {
@@ -50,5 +53,6 @@ module.exports = {
   onUpdateBlogFailure,
   onDestroyBlogSuccess,
   onDestroyBlogFailure,
-  showBlogs
+  showBlogs,
+  blogsBack
 }

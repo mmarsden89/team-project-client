@@ -1,11 +1,8 @@
 'use strict'
-const store = require('../../store')
 
-const commentBelongsTo = function (comment) {
-  if (comment === store.currentBlog) {
+const commentBelongsTo = function (blog, comment) {
+  if (blog === comment) {
     return true
-  } else {
-    return false
   }
 }
 

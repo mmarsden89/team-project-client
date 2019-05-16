@@ -1,5 +1,5 @@
 {{#each comments as |comment|}}
-{{log comment}}
+{{log (comment)}}
  {{#if (commentBelongsTo comment.blog)}}
   <section data-comment="{{comment.id}}">
     <p>

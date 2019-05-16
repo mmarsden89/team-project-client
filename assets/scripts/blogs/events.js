@@ -28,21 +28,29 @@ const onUpdateBlog = function (event) {
 
 const onDestroyBlog = function (event) {
   event.preventDefault()
-  console.log(event)
   const id = $(event.target).data('blog')
-  console.log(id)
   api.destroyBlog(id)
     .then(ui.onDestroyBlogSuccess)
     .catch(ui.onDestroyBlogFailure)
 }
 
+const onGetBlogsTimeout = function () {
+  setTimeout(onGetBlogs, 500)
+}
+
 const addHandlers = function (event) {
+  $('.blog-create-btn').on('click', onGetBlogsTimeout)
+  $('.content').on('submit', '.update-form', onUpdateBlog)
+  $('#blogs-back').fadeOut()
   $('#clicky').on('click', onGetBlogs)
+  $('#blogs-back').on('click', ui.blogsBack)
   $('#create-blog-form').on('submit', onNewBlog)
   $('#place').on('submit', onUpdateBlog)
-  $('.content').on('click', '.btn-danger', onDestroyBlog)
+  $('.content').on('click', '.blog-delete', onDestroyBlog)
+  $('.content').on('click', '.button', onGetBlogsTimeout)
 }
 
 module.exports = {
-  addHandlers
+  addHandlers,
+  onGetBlogsTimeout
 }

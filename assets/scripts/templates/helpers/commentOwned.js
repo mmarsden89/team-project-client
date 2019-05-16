@@ -2,10 +2,8 @@
 const store = require('../../store')
 
 const commentOwned = function (comment) {
-  if (comment === store.currentBlog) {
+  if (comment === store.user._id) {
     return true
-  } else {
-    return false
   }
 }
 
