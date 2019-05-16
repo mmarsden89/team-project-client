@@ -1,5 +1,6 @@
 const getFormFields = require('./../../../lib/get-form-fields.js')
 const api = require('./api')
+const api1 = require('../blogs/api')
 const ui = require('./ui')
 
 const onGetComments = function () {
@@ -15,7 +16,7 @@ const onNewComment = function (event) {
   api.createComment(id, data)
     .then(ui.onCreateCommentSuccess)
     .catch(ui.onCreateCommentFailure)
-  api.getBlogs()
+  api1.getBlogs()
   api.getComments()
 }
 
