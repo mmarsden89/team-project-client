@@ -36,8 +36,9 @@ const onDestroyComment = function (event) {
 }
 
 const addHandlers = function (event) {
-  $('.content').on('click', '.comments-button', onGetComments)
   $('#place').on('submit', onNewComment)
+  $('.content').on('click', '.comment-update', ui.showCommentUpdateForm)
+  $('.content').on('click', '.comments-button', onGetComments)
   $('.content').on('submit', '.update-form-comment', onUpdateComment)
   $('.content').on('click', '.comment-delete', onDestroyComment)
 }

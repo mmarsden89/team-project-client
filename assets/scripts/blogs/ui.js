@@ -25,6 +25,7 @@ const getBlogFailure = function () {
 const onCreateBlogSuccess = function (data) {
   $('form').trigger('reset')
   console.log('created')
+  showBlogs()
 }
 
 const onCreateBlogFailure = function (data) {
@@ -34,6 +35,7 @@ const onCreateBlogFailure = function (data) {
 const onUpdateBlogSuccess = function (data) {
   $('form').trigger('reset')
   console.log('updated')
+  showBlogs()
 }
 
 const onUpdateBlogFailure = function (data) {
@@ -42,6 +44,7 @@ const onUpdateBlogFailure = function (data) {
 
 const onDestroyBlogSuccess = function (data) {
   console.log('destoyed')
+  showBlogs()
 }
 
 const onDestroyBlogFailure = function (data) {

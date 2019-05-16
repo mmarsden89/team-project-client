@@ -46,6 +46,11 @@ const onDestroyCommentSuccess = function (data) {
 const onDestroyCommentFailure = function (data) {
   console.log('failed to destroy')
 }
+
+const showCommentUpdateForm = function () {
+  store.currentUpdate = null
+  store.currentUpdate = true
+}
 module.exports = {
   getCommentSuccess,
   getCommentFailure,
@@ -55,5 +60,6 @@ module.exports = {
   onUpdateCommentFailure,
   onDestroyCommentSuccess,
   onDestroyCommentFailure,
-  showComments
+  showComments,
+  showCommentUpdateForm
 }
