@@ -4,7 +4,6 @@ const showBlogsTemplate = require('../templates/blog-listing.handlebars')
 
 const getBlogSuccess = function (data, comments) {
   store.blogs = data.blogs
-  console.log(data.blogs)
 }
 
 const showBlogs = function () {
@@ -21,7 +20,6 @@ const blogsBack = function () {
 }
 
 const getBlogFailure = function () {
-  console.log('whoops')
 }
 
 const onCreateBlogSuccess = function (data) {
@@ -29,26 +27,21 @@ const onCreateBlogSuccess = function (data) {
 }
 
 const onCreateBlogFailure = function (data) {
-  console.log('failed to create')
 }
 
 const onUpdateBlogSuccess = function (data) {
   $('form').trigger('reset')
-  console.log('updated')
   showBlogs()
 }
 
 const onUpdateBlogFailure = function (data) {
-  console.log('failed to update')
 }
 
 const onDestroyBlogSuccess = function (data) {
-  console.log('destoyed')
   showBlogs()
 }
 
 const onDestroyBlogFailure = function (data) {
-  console.log('failed to destroy')
 }
 
 module.exports = {

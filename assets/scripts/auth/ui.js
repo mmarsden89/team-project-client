@@ -3,7 +3,6 @@ const commentEvents = require('../comments/event')
 const blogEvents = require('../blogs/events')
 
 const signUpSuccess = function (data) {
-  console.log('success')
   $('form').trigger('reset')
   $('#sign-up-form').hide()
   $('#sign-up-form').fadeOut(500)
@@ -11,7 +10,6 @@ const signUpSuccess = function (data) {
 }
 
 const signUpFailure = function (data) {
-  console.log('signup failure')
   $('form').trigger('reset')
 }
 
@@ -29,31 +27,26 @@ const showAccountButtons = function () {
 }
 
 const signInFailure = function (data) {
-  console.log('signin failure')
   $('form').trigger('reset')
 }
 
 const changePasswordSuccess = function (data) {
-  console.log('success')
   $('form').trigger('reset')
   $('#change-password').fadeOut(500)
   setTimeout(showAccountButtons, 520)
 }
 
 const changePasswordFailure = function (data) {
-  console.log('changepass failure')
   $('form').trigger('reset')
 }
 
 const signOutSuccess = function () {
-  console.log('success')
   store.user.token = null
   $('#account-buttons').fadeOut(500)
   setTimeout(signInFade, 520)
 }
 
 const signOutFailure = function () {
-  console.log('signout failure')
   $('form').trigger('reset')
   store.user.token = null
   $('#account-buttons').fadeOut(500)
