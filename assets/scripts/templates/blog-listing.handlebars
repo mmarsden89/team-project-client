@@ -21,6 +21,20 @@
   </div>
   <div class="comment-list">
   </div>
+  {{#each ../comments as |comment|}}
+  {{#if (commentBelongsTo blog._id comment.blog)}}
+  <section data-id="{{comment._id}}">
+    <div id="{{this._id}}" class="tiny">
+      {{this.text}}
+      <button data-comment="{{comment._id}}" class="btn btn-danger comment-delete">delete</button>
+      <form data-comment="{{comment._id}}" class='update-form-comment'>
+        <input type="text" name="comment[text]" placeholder="old comment">
+        <input type="submit">
+      </form>
+    </p>
+  </section>
+  {{/if}}
+  {{/each}}
   </div>
   </section>
   {{else}}
@@ -35,14 +49,4 @@
   <div class="comment-list">
   </section>
   {{/if}}
-{{/each}}
-{{#each comments as |comment|}}
-<p>
-  {{this.text}}
-  <button data-comment="{{comment._id}}" class="btn btn-danger comment-delete">delete</button>
-  <form data-comment="{{comment._id}}" class='update-form-comment'>
-    <input type="text" name="comment[text]" placeholder="old comment">
-    <input type="submit">
-  </form>
-</p>
 {{/each}}
