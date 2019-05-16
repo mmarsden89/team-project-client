@@ -60,6 +60,7 @@ const changePasswordFailure = function (data) {
 }
 
 const signOutSuccess = function () {
+  $('#new-blog-section').hide()
   store.user.token = null
   $('#account-buttons').fadeOut(500)
   setTimeout(signInFade, 520)
