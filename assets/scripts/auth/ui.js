@@ -20,6 +20,7 @@ const signUpFailure = function (data) {
 }
 
 const signInSuccess = function (data) {
+  $('#new-blog-section').show()
   store.user = data.user
   commentEvents.onGetComments()
   $('form').trigger('reset')
