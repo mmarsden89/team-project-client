@@ -11,14 +11,14 @@ const getComments = function () {
   })
 }
 
-const createComment = function (data) {
+const createComment = function (id, data) {
   return $.ajax({
     url: config.apiUrl + '/comments',
     method: 'POST',
     headers: {Authorization: 'Token token=' + store.user.token},
     data: {
       comment: {
-        'blog': `${data.comment.blog}`,
+        'blog': `${id}`,
         'text': `${data.comment.text}`
       }
     }
