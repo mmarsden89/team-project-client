@@ -52,6 +52,7 @@ const onDestroyCommentFailure = function (data) {
 const showCommentUpdateForm = function () {
   store.currentUpdate = true
 }
+
 module.exports = {
   getCommentSuccess,
   getCommentFailure,
