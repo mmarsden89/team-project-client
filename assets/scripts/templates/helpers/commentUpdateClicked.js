@@ -1,10 +1,11 @@
 'use strict'
 const store = require('../../store')
 
-const commentUpdateClicked = function () {
-  if (!store.currentUpdate) {
-    store.currentUpdate = false
+const commentUpdateClicked = function (comment) {
+  if (comment === store.currentUpdate) {
     return true
+  } else {
+    return false
   }
 }
 
