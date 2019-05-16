@@ -71,5 +71,5 @@ module.exports = {
   onDestroyCommentSuccess,
   onDestroyCommentFailure,
   showComments,
-  showCommentUpdateForm,
+  showCommentUpdateForm
 }
