@@ -85,8 +85,12 @@ section {
   font-size: 10px;
 }
 
-.commentHeight {
-  height: 100px;
+#comment-text-show h1,
+ #comment-text-show p {
+  display: inline;
+  font-size: 16px;
+  line-height: 28px;
+  vertical-align: top;
 }
 
 .content {
@@ -120,7 +124,7 @@ section {
 }
 
 .tiny {
-  width: 80vw;
+  width: 500px;
 }
 
 .wrapper {
