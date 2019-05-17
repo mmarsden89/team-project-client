@@ -9,7 +9,7 @@
         </div>
       <div id="loggedInButtonWrapper" class="loggedInButtonWrapper">
 
-        {{#if (blogOwned blog.owner)}}
+        {{#if (blogOwned blog.owner._id)}}
         <div>
           <form data-blog="{{blog._id}}" class='update-form'>
             <input type="text" name="blog[title]" placeholder="old title" class="update-blog-form">
@@ -37,6 +37,7 @@
         <form data-comment="{{comment._id}}" class='update-form-comment'>
           <input type="text" name="comment[text]" placeholder="old comment" maxlength="65">
           <input type="submit" class="button">
+          <button data-comment="{{comment._id}}" class="btn btn-danger comment-delete button">delete</button>
         </form>
         {{else}}
           <button data-comment="{{comment._id}}" id="{{comment._id}}" class="btn btn-outline-dark comment-update button">update</button>

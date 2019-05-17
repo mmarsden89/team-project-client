@@ -17,6 +17,7 @@ const onNewBlog = function (event) {
     .then(ui.onCreateBlogSuccess)
     .catch(ui.onCreateBlogFailure)
   api.getBlogs()
+  ui.showBlogs()
 }
 
 const onUpdateBlog = function (event) {
