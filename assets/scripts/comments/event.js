@@ -1,8 +1,6 @@
 const getFormFields = require('./../../../lib/get-form-fields.js')
 const api = require('./api')
-const api1 = require('../blogs/api')
 const ui = require('./ui')
-const store = require('../store')
 
 const onGetComments = function () {
   api.getComments()
