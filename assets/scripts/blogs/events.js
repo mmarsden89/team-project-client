@@ -27,7 +27,6 @@ const onUpdateBlog = function (event) {
   api.updateBlog(data, id)
     .then(ui.onUpdateBlogSuccess)
     .catch(ui.onUpdateBlogFailure)
-  api.onGetBlogs()
   api.getBlogs()
 }
 
