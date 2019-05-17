@@ -29,11 +29,15 @@ Front end: implementation of handlebars starter code for blogs and comments,
 html boilerplate for user actions, simple css, basic JS for user actions.
 
 ## Day 2:
-### Back end: Patch requests update and streamlined, refactoring. Ownership implemented for blogs and comments.
+Back end: Patch requests update and streamlined, refactoring. Ownership implemented for blogs and comments.
 
 Front End: Utilization of handlebars to create blogs and comments and populate each iteration with buttons, CSS color, styling, animations. HTML containers for
 items to populate into. All crud actions for each resource linked to front end.
 Hide and show actions implemented for user forms and blogs. Bootstrap utilized to cleanly present blogs.
+
+## Day 3
+
+Finish some stylizing points and user-facing bugs for deployment
 
 Front end features:
 Using handlebars all blogs are populated to the page with related CRUD buttons if the user has ownership when clicking the view
@@ -81,8 +85,9 @@ blogs button. Comments and related CRUD buttons are populated to individual blog
 - As a signed in user, I would to update my blog posts and comments.
 - As a signed in user, I would to delete my blog posts and comments.
 
-## Wireframe and ERD:
+## Wireframe
 
+[wireframe](https://i.imgur.com/VETB6Q3.png)
 
 ### Technologies Used:
 - html
