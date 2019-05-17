@@ -1,6 +1,5 @@
 const getFormFields = require('./../../../lib/get-form-fields.js')
 const api = require('./api')
-const api1 = require('../comments/api')
 const ui = require('./ui')
 const comments = require('../comments/event')
 
@@ -9,7 +8,6 @@ const onGetBlogs = function () {
     .then(ui.getBlogSuccess)
     .then(ui.showBlogs)
     .catch(ui.getBlogFailure)
-
 }
 
 const onNewBlog = function (event) {
