@@ -1,6 +1,7 @@
 const store = require('./../store.js')
 const commentEvents = require('../comments/event')
 const blogEvents = require('../blogs/events')
+const blogUi = require('../blogs/ui')
 
 const signUpSuccess = function (data) {
   $('form').trigger('reset')
@@ -62,11 +63,13 @@ const changePasswordFailure = function (data) {
 const signOutSuccess = function () {
   $('#new-blog-section').hide()
   store.user.token = null
+  store.user = undefined
   $('#account-buttons').fadeOut(500)
   setTimeout(signInFade, 520)
   $('#user-div').fadeIn(50)
   $('#user-div').html('You signed out!')
   $('#user-div').fadeOut(8000)
+  blogUi.onOpen()
 }
 
 const signOutFailure = function () {
