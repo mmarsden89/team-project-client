@@ -36,6 +36,9 @@ nav {
   flex-direction: row;
   justify-content: space-between;
   width: 100vw;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 nav button, .nav-button {
