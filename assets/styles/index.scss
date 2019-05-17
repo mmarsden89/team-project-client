@@ -16,12 +16,16 @@ body {
 }
 
 h1 {
-  color: rgba(139, 175, 219, 0.7);
+  color: #00ffff;
   font-family: 'Righteous', cursive;
 }
 
 .h1Title {
   margin-left: 10px;
+}
+
+.card-title {
+  color: #00B8DE;
 }
 
 nav {
@@ -32,6 +36,9 @@ nav {
   flex-direction: row;
   justify-content: space-between;
   width: 100vw;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 nav button, .nav-button {
@@ -69,18 +76,21 @@ section {
   border-radius: 5px;
   margin-bottom: 30px;
   margin-top: 30px;
+  max-width: 1000px;
+  min-height: 290px;
 }
 
 .comments-text {
   color: white;
-}
-
-.comments-text {
   font-size: 10px;
 }
 
-.commentHeight {
-  height: 100px;
+#comment-text-show h1,
+ #comment-text-show p {
+  display: inline;
+  font-size: 16px;
+  line-height: 28px;
+  vertical-align: top;
 }
 
 .content {
@@ -90,7 +100,7 @@ section {
   justify-content: center;
 }
 
-.login-form {
+.login-form, .sign-up-wrap {
   display: flex;
   flex-direction: row;
 }
@@ -106,7 +116,6 @@ section {
   opacity: 1;
 }
 
-
 .loggedInButtonWrapper {
   align-items: center;
   display: flex;
@@ -115,8 +124,7 @@ section {
 }
 
 .tiny {
-  overflow: hidden;
-  width: 80vw;
+  width: 500px;
 }
 
 .wrapper {
@@ -124,5 +132,4 @@ section {
   display: flex;
   flex-direction: column;
   padding: 20px 0;
-
 }

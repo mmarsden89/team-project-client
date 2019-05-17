@@ -1,12 +1,12 @@
 'use strict'
 const store = require('../../store')
 
-const loggedIn = function () {
-  if (store.user !== undefined) {
+const notLoggedIn = function () {
+  if (store.user === undefined) {
     return true
   } else {
     return false
   }
 }
 
-module.exports = loggedIn
+module.exports = notLoggedIn
