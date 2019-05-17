@@ -36,6 +36,9 @@ nav {
   flex-direction: row;
   justify-content: space-between;
   width: 100vw;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 nav button, .nav-button {
@@ -82,8 +85,12 @@ section {
   font-size: 10px;
 }
 
-.commentHeight {
-  height: 100px;
+#comment-text-show h1,
+ #comment-text-show p {
+  display: inline;
+  font-size: 16px;
+  line-height: 28px;
+  vertical-align: top;
 }
 
 .content {
@@ -93,7 +100,7 @@ section {
   justify-content: center;
 }
 
-.login-form {
+.login-form, .sign-up-wrap {
   display: flex;
   flex-direction: row;
 }
@@ -117,7 +124,7 @@ section {
 }
 
 .tiny {
-  width: 80vw;
+  width: 500px;
 }
 
 .wrapper {

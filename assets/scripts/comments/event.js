@@ -2,6 +2,7 @@ const getFormFields = require('./../../../lib/get-form-fields.js')
 const api = require('./api')
 const api1 = require('../blogs/api')
 const ui = require('./ui')
+const store = require('../store')
 
 const onGetComments = function () {
   api.getComments()
@@ -15,8 +16,8 @@ const onNewComment = function (event) {
   const data = getFormFields(event.target)
   api.createComment(id, data)
     .then(ui.onCreateCommentSuccess)
+    .then(onGetComments)
     .catch(ui.onCreateCommentFailure)
-  api1.getBlogs()
   api.getComments()
 }
 
@@ -36,6 +37,7 @@ const onDestroyComment = function (event) {
   const id = $(event.target).data('comment')
   api.destroyComment(id)
     .then(ui.onDestroyCommentSuccess)
+    .then(onGetComments)
     .catch(ui.onDestroyCommentFailure)
   api.getComments()
 }
