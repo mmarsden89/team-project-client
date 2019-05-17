@@ -54,7 +54,6 @@ const addHandlers = function (event) {
   $('#clicky').on('click', onGetBlogs)
   $('#blogs-back').on('click', ui.blogsBack)
   $('#create-blog-form').on('submit', onNewBlog)
-  $('#place').on('submit', onUpdateBlog)
   $('.content').on('click', '.blog-delete', onDestroyBlog)
   $('.content').on('click', '.button', onGetBlogsTimeout)
   $('.content').on('click', '.blog-update', ui.blogUpdateButtonClick)
