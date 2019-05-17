@@ -1,5 +1,4 @@
 const store = require('./../store.js')
-const api = require(`./api.js`)
 
 store.currentUpdate = null
 
@@ -14,8 +13,8 @@ const getCommentSuccess = function (data) {
 }
 
 const onCreateCommentSuccess = function (data) {
+  console.log(store.comments)
   $('form').trigger('reset')
-  $('#user-div').fadeIn(500)
   $('#user-div').html('Your comment has been added!')
   $('#user-div').fadeOut(500)
 }

@@ -9,6 +9,7 @@ const onGetBlogs = function () {
     .then(ui.getBlogSuccess)
     .then(ui.showBlogs)
     .catch(ui.getBlogFailure)
+
 }
 
 const onNewBlog = function (event) {
@@ -29,7 +30,6 @@ const onUpdateBlog = function (event) {
     .catch(ui.onUpdateBlogFailure)
   api.onGetBlogs()
   api.getBlogs()
-  api1.getComments()
 }
 
 const onDestroyBlog = function (event) {
@@ -50,7 +50,6 @@ const addHandlers = function (event) {
   window.setTimeout(ui.onOpen, 1000)
   $('.blog-create-btn').on('click', onGetBlogsTimeout)
   $('.content').on('submit', '.update-form', onUpdateBlog)
-  $('#clicky').on('click', onGetBlogs)
   $('#create-blog-form').on('submit', onNewBlog)
   $('.content').on('click', '.blog-delete', onDestroyBlog)
   $('.content').on('click', '.button', onGetBlogsTimeout)
