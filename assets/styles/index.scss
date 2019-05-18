@@ -26,12 +26,21 @@ h1 {
   font-family: 'Righteous', cursive;
 }
 
+.account-buttons {
+  margin-right: 10px;
+}
+
 .h1Title {
   margin-left: 10px;
 }
 
 .card-title {
-  color: #00B8DE;
+  margin: 10px 0 0 10px;
+  color: rgba(42, 58, 78, 0.9);
+}
+
+.card-title-span {
+  font-size: 13px
 }
 
 nav {
@@ -88,7 +97,6 @@ section {
   margin-bottom: 30px;
   margin-top: 30px;
   max-width: 1000px;
-  min-height: 290px;
 }
 
 .card-body {
@@ -140,10 +148,14 @@ textarea, .blog-title-create {
   border:1px solid rgba(42, 58, 78, 0.9);
   border-radius: 5px;
   color: rgba(42, 58, 78, 0.9);
+  width: 100%;
 }
 
 .tiny {
   width: 500px;
+}
+.view-comments {
+  text-align: right;
 }
 
 .welcome {

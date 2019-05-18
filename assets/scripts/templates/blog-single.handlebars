@@ -1,5 +1,4 @@
-{{#each blogs as |blog|}}
-  {{#if (loggedIn)}}
+  {{log blog}}
   <section data-blog="{{blog._id}}">
     <div class="card" style="width: 1000px;">
       <h5 class="card-title">{{blog.title}}
@@ -20,12 +19,16 @@
         </div>
       {{/if}}
   </div>
-    <div class="view-comments" data-blog-comment="{{blog._id}}"><a href="#">view comments({{blog.comments.length}})</a></div>
+  <div class="comment-list">
+    <form data-blog="{{blog._id}}" class="create-comment-form">
+      <input type="text" name="comment[text]" placeholder="comment here" maxlength="65">
+      <input type="submit" class="button">
+    </form>
   </div>
   <div>
       </div>
     </div>
   </div>
     </section>
-    {{/if}}
-    {{/each}}
+
+    <p>x</p>

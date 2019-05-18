@@ -1,6 +1,7 @@
 const store = require('./../store')
 const showBlogsTemplate = require('../templates/blog-listing.handlebars')
 const showBlogOpenTemplate = require('../templates/blog-open.handlebars')
+const showSingleBlogTemplate = require('../templates/blog-single.handlebars')
 
 const getBlogSuccess = function (data, comments) {
   store.blogs = data.blogs
@@ -70,6 +71,12 @@ const onOpen = function () {
   $('.content').html(showBlogOpenHtml)
 }
 
+const singleBlog = function () {
+  $('#new-blog-section').hide()
+  const showSingleBlog = showSingleBlogTemplate({ blog: store.currentBlog })
+  $('.content').html(showSingleBlog)
+}
+
 module.exports = {
   getBlogSuccess,
   getBlogFailure,
@@ -82,5 +89,6 @@ module.exports = {
   showBlogs,
   blogsBack,
   blogUpdateButtonClick,
-  onOpen
+  onOpen,
+  singleBlog
 }

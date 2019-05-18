@@ -2,6 +2,7 @@ const getFormFields = require('./../../../lib/get-form-fields.js')
 const api = require('./api')
 const ui = require('./ui')
 const comments = require('../comments/event')
+const store = require('../store')
 
 const onGetBlogs = function () {
   api.getBlogs()
@@ -44,6 +45,13 @@ const onGetBlogsTimeout = function () {
   setTimeout(onGetBlogs, 500)
 }
 
+const runLog = function (event) {
+  const id = $(event.currentTarget).data('blog-comment')
+  store.currentBlog = store.blogs.find(x => x._id === id)
+  console.log(store.currentBlog)
+  ui.singleBlog()
+}
+
 const addHandlers = function (event) {
   window.setTimeout(ui.onOpen, 1000)
   $('.blog-create-btn').on('click', onGetBlogsTimeout)
@@ -52,6 +60,7 @@ const addHandlers = function (event) {
   $('.content').on('click', '.blog-delete', onDestroyBlog)
   $('.content').on('click', '.button', onGetBlogsTimeout)
   $('.content').on('click', '.blog-update', ui.blogUpdateButtonClick)
+  $('.content').on('click', '.view-comments', runLog)
 }
 
 module.exports = {
