@@ -1,5 +1,5 @@
 @import '~bootstrap/scss/bootstrap';
-@import url('https://fonts.googleapis.com/css?family=Righteous');
+@import url('https://fonts.googleapis.com/css?family=Changa:400,800|Righteous&display=swap');
 
 nav button, .button {
   border-radius: 5px;
@@ -73,9 +73,13 @@ section {
   width: 80vw;
 }
 
+.section-static {
+  flex-direction: row;
+}
+
 .blog-text-create {
-  height: 120px;
   margin: 20px 0;
+  resize: none;
 }
 
 .card {
@@ -87,9 +91,20 @@ section {
   min-height: 290px;
 }
 
+.card-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap-reverse;
+}
+
 .comments-text {
   color: white;
   font-size: 10px;
+}
+
+.card {
+  width: 70vw !important;
 }
 
 #comment-text-show h1,
@@ -120,12 +135,51 @@ section {
   justify-content: center;
 }
 
+textarea, .blog-title-create {
+  background: rgba(255, 255, 255, 0.5);
+  border:1px solid rgba(42, 58, 78, 0.9);
+  border-radius: 5px;
+  color: rgba(42, 58, 78, 0.9);
+}
+
 .tiny {
   width: 500px;
 }
 
+.welcome {
+  font-size: 80px;
+  text-align: center;
+}
+
+.welcome3 {
+  color: rgba(78, 107, 143, .9);
+  font-family: 'Changa', sans-serif;
+  font-size: 50px;
+  letter-spacing: 7px;
+  margin-top: -24px;
+  text-align: center;
+  transform: scale(1.1, 1);
+}
+
+.welcome5 {
+  color: rgba(56, 78, 106, 0.9);
+  font-family: 'Changa', sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  margin-top: -15px;
+  text-align: center;
+}
+
+.welcome-close {
+  color: rgba(42, 58, 78, 0.9);
+  font-size: 80px;
+  letter-spacing: 7px;
+  margin-top: -17px;
+  text-align: center;
+}
+
 .wrapper {
-  align-items: center;
+  align-items: flex-start;
   display: flex;
   flex-direction: column;
   padding: 20px 0;

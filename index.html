@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Bloggle</title>
+      <title>bloggle</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -14,7 +14,7 @@
 
     <body>
       <nav>
-      <h1 class="h1Title">Bloggle!</h1>
+      <h1 class="h1Title">bloggle!</h1>
       <div id="user-div" class="user-div"> </div>
       <div id="login-form" class="login-form">
         <form id="sign-in" name="sign-in" class="login-container">
@@ -47,16 +47,22 @@
         <button id="logout">logout</button>
       </div>
     </nav>
-      <section id="new-blog-section">
+      <section id="new-blog-section" class="section-static">
         <div class="card" style="width: 1000px; height: 300px;">
           <div id="card-display" class="card-body">
-            <form id="create-blog-form" class="hidden creating-blog wrapper">
+            <form id="create-blog-form" class="creating-blog wrapper">
               <input type="text" name="blog[title]" placeholder="Title" required="required" class="blog-title-create">
-              <input type="text" name="blog[text]" placeholder="Text" required="required" class="blog-text-create" maxlength="500">
-              <input type="submit" class="blog-create-btn" value="Create Blog">
+              <textarea name="blog[text]" placeholder="Text" required="required" class="blog-text-create" rows="4" cols="50" maxlength="500"></textarea>
+              <input type="submit" class="blog-create-btn button" value="Create Blog">
             </form>
+            <div>
+              <h1 class="welcome">Welcome</h1>
+              <h3 class="welcome3">to bloggle</h3>
+              <h5 class="welcome5">got something to say?</h5>
+              <h1 class="welcome-close">SAY IT!</h1>
             </div>
-          </div>
+        </div>
+      </div>
     </section>
 
 <div class="content"></div>
