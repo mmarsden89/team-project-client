@@ -11,6 +11,7 @@ const showBlogs = function () {
   const showBlogsHtml = showBlogsTemplate({ blogs: store.blogs, comments: store.comments })
   $('.content').html(showBlogsHtml)
   $('#create-blog-form').fadeIn(500)
+  $('#new-blog-section').fadeIn(500)
   $('.content').show()
 }
 
@@ -67,13 +68,17 @@ const onDestroyBlogFailure = function (data) {
 }
 
 const onOpen = function () {
+  $('#new-blog-section').hide()
   const showBlogOpenHtml = showBlogOpenTemplate({ blogs: store.blogs, comments: store.comments })
   $('.content').html(showBlogOpenHtml)
 }
 
-const singleBlog = function () {
+const singleBlog = function (data) {
+  console.log('8888888')
+  console.log(data)
+  console.log('8888888')
   $('#new-blog-section').hide()
-  const showSingleBlog = showSingleBlogTemplate({ blog: store.currentBlog })
+  const showSingleBlog = showSingleBlogTemplate({ data: data })
   $('.content').html(showSingleBlog)
 }
 

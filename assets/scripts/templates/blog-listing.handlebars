@@ -3,7 +3,7 @@
   <section data-blog="{{blog._id}}">
     <div class="card" style="width: 1000px;">
       <h5 class="card-title">{{blog.title}}
-      <span class="card-title-span">by: {{blog.owner.email}} on {{convertTime blog.createdAt}}</span></h5>
+      <span class="card-title-span">by: {{blog.owner.email}} - {{howLongAgo blog.createdAt}}</span></h5>
       <div id="card-display" class="card-body">
         <p class="card-text blog-text">{{blog.text}}</p>
         </div>

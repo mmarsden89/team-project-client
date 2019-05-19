@@ -46,10 +46,19 @@ const onGetBlogsTimeout = function () {
 }
 
 const runLog = function (event) {
+  event.preventDefault()
   const id = $(event.currentTarget).data('blog-comment')
-  store.currentBlog = store.blogs.find(x => x._id === id)
-  console.log(store.currentBlog)
-  ui.singleBlog()
+  api.getSingleBlog(id)
+    .then(ui.singleBlog)
+}
+
+const singleBacktoView = function (event) {
+  event.preventDefault()
+  if (store.user !== undefined) {
+    ui.showBlogs()
+  } else {
+    ui.onOpen()
+  }
 }
 
 const addHandlers = function (event) {
@@ -61,6 +70,7 @@ const addHandlers = function (event) {
   $('.content').on('click', '.button', onGetBlogsTimeout)
   $('.content').on('click', '.blog-update', ui.blogUpdateButtonClick)
   $('.content').on('click', '.view-comments', runLog)
+  $('.content').on('click', '.right-x', singleBacktoView)
 }
 
 module.exports = {
