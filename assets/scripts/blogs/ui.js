@@ -74,9 +74,6 @@ const onOpen = function () {
 }
 
 const singleBlog = function (data) {
-  console.log('8888888')
-  console.log(data)
-  console.log('8888888')
   $('#new-blog-section').hide()
   const showSingleBlog = showSingleBlogTemplate({ data: data })
   $('.content').html(showSingleBlog)

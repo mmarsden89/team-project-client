@@ -45,7 +45,7 @@ const onGetBlogsTimeout = function () {
   setTimeout(onGetBlogs, 500)
 }
 
-const runLog = function (event) {
+const onGetSingleBlog = function (event) {
   event.preventDefault()
   const id = $(event.currentTarget).data('blog-comment')
   api.getSingleBlog(id)
@@ -69,7 +69,7 @@ const addHandlers = function (event) {
   $('.content').on('click', '.blog-delete', onDestroyBlog)
   $('.content').on('click', '.button', onGetBlogsTimeout)
   $('.content').on('click', '.blog-update', ui.blogUpdateButtonClick)
-  $('.content').on('click', '.view-comments', runLog)
+  $('.content').on('click', '.view-comments', onGetSingleBlog)
   $('.content').on('click', '.right-x', singleBacktoView)
 }
 
