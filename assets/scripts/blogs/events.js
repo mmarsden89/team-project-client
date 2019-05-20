@@ -57,8 +57,10 @@ const singleBacktoView = function (event) {
   event.preventDefault()
   if (store.user !== undefined) {
     ui.showBlogs()
+    store.currentUpdate = null
   } else {
     ui.onOpen()
+    store.currentUpdate = null
   }
 }
 
@@ -75,7 +77,7 @@ const addHandlers = function (event) {
   $('.content').on('submit', '.update-form', onUpdateBlog)
   $('#create-blog-form').on('submit', onNewBlog)
   $('.content').on('click', '.blog-delete', onDestroyBlog)
-  $('.content').on('click', '.button', onGetBlogsTimeout)
+  // $('.content').on('click', '.button', onGetBlogsTimeout)
   $('.content').on('click', '.blog-update', ui.blogUpdateButtonClick)
   $('.content').on('click', '.view-comments', onGetSingleBlog)
   $('.content').on('click', '.right-x', singleBacktoView)

@@ -21,28 +21,32 @@ const onNewComment = function (event) {
   api.getComments()
 }
 
+const getSingleBlogCommentUpdate = function () {
+  blogApi.getSingleBlog(store.currentBlog)
+    .then(blogUi.singleBlog)
+}
+
 const onUpdateComment = function (event) {
   event.preventDefault()
   const id = $(event.target).data('comment-update')
   const data = getFormFields(event.target)
   api.updateComment(data, id)
     .then(ui.onUpdateCommentSuccess)
-    .then(onGetComments)
-    .then(store.currentUpdate = 0)
+    .then(store.currentUpdate = null)
     .catch(ui.onUpdateCommentFailure)
-  api.getComments()
-    .then(blogApi.getSingleBlog(store.currentBlog))
-    .then(blogUi.singleBlog)
+  // blogApi.getSingleBlog(store.currentBlog)
+  //   .then(blogUi.singleBlog)
+  setTimeout(getSingleBlogCommentUpdate, 500)
 }
 
 const onDestroyComment = function (event) {
   event.preventDefault()
-  const id = $(event.target).data('comment')
+  const id = $(event.target).data('delete-comment')
   api.destroyComment(id)
     .then(ui.onDestroyCommentSuccess)
     .then(onGetComments)
     .catch(ui.onDestroyCommentFailure)
-  api.getComments()
+  setTimeout(getSingleBlogCommentUpdate, 500)
 }
 
 const addHandlers = function (event) {

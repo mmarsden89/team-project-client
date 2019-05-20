@@ -6,7 +6,7 @@
         <p class="card-text blog-text">{{data.blog.text}}</p>
       </div>
       <div id="loggedInButtonWrapper" class="loggedInButtonWrapper">
-        {{#if (blogOwned data.blog.owner._id)}}
+        {{#if (blogOwned data.blog.owner)}}
         <div>
           <button class="button">update</button>
           <form data-blog="{{data.blog._id}}" class='update-form'>
@@ -14,8 +14,6 @@
             <input type="text" name="blog[text]" placeholder="old text" class="update-blog-form">
             <input type="submit" class="button">
           </form>
-          <button data-blog="{{data.blog._id}}" class="btn btn-danger blog-delete button">delete</button>
-
         </div>
       {{/if}}
     </div>
@@ -30,7 +28,7 @@
     {{/if}}
     <div class="comment-section">
       {{#each data.comments as |comment|}}
-        <span class="comment-single-view"><p class="p-single-view">{{comment.owner}} - {{howLongAgo comment.createdAt}} {{#if (commentOwned comment.owner)}} <a href="#" data-edit-comment="{{comment._id}}" class="edit-comment">(edit)</a> <a href="#">(delete)</a>{{/if}}</p></span>
+        <span class="comment-single-view"><p class="p-single-view">{{comment.owner}} - {{howLongAgo comment.createdAt}} {{#if (commentOwned comment.owner)}} <a href="#" data-edit-comment="{{comment._id}}" class="edit-comment">(edit)</a> <a href="#" data-delete-comment="{{comment._id}}" class="comment-delete">(delete)</a>{{/if}}</p></span>
         {{#if (commentUpdateClicked comment._id)}}
         <form data-comment-update={{comment._id}} class="update-form-comment">
         <input type="text" name="text">

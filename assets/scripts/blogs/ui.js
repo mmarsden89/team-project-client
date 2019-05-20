@@ -74,15 +74,16 @@ const onOpen = function () {
 }
 
 const singleBlog = function (data) {
+  console.log('$$$$$$$$$$')
+  console.log(data)
+  console.log('$$$$$$$$$$')
   $('#new-blog-section').hide()
   const showSingleBlog = showSingleBlogTemplate({ data: data })
   $('.content').html(showSingleBlog)
 }
 
 const showCommentUpdateForm = function (event) {
-  console.log(event.target)
   store.currentUpdate = $(event.target).data('edit-comment')
-  console.log(store.currentUpdate)
 }
 
 module.exports = {
