@@ -34,8 +34,6 @@ const onUpdateComment = function (event) {
     .then(ui.onUpdateCommentSuccess)
     .then(store.currentUpdate = null)
     .catch(ui.onUpdateCommentFailure)
-  // blogApi.getSingleBlog(store.currentBlog)
-  //   .then(blogUi.singleBlog)
   setTimeout(getSingleBlogCommentUpdate, 500)
 }
 
