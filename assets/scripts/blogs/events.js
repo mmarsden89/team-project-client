@@ -1,7 +1,7 @@
 const getFormFields = require('./../../../lib/get-form-fields.js')
 const api = require('./api')
 const ui = require('./ui')
-const comments = require('../comments/event')
+const commentsEvents = require('../comments/event')
 const store = require('../store')
 
 const onGetBlogs = function () {
@@ -41,13 +41,14 @@ const onDestroyBlog = function (event) {
 }
 
 const onGetBlogsTimeout = function () {
-  comments.onGetComments()
+  setTimeout(commentsEvents.onGetComments, 50)
   setTimeout(onGetBlogs, 500)
 }
 
 const onGetSingleBlog = function (event) {
   event.preventDefault()
   const id = $(event.currentTarget).data('blog-comment')
+  store.currentBlog = id
   api.getSingleBlog(id)
     .then(ui.singleBlog)
 }
@@ -61,6 +62,13 @@ const singleBacktoView = function (event) {
   }
 }
 
+const onEditSingleComment = function (event) {
+  console.log('store.currentblog is!!!! ', store.currentBlog)
+  store.currentUpdate = $(event.target).data('edit-comment')
+  api.getSingleBlog(store.currentBlog)
+    .then(ui.singleBlog)
+}
+
 const addHandlers = function (event) {
   window.setTimeout(ui.onOpen, 1000)
   $('.blog-create-btn').on('click', onGetBlogsTimeout)
@@ -71,9 +79,11 @@ const addHandlers = function (event) {
   $('.content').on('click', '.blog-update', ui.blogUpdateButtonClick)
   $('.content').on('click', '.view-comments', onGetSingleBlog)
   $('.content').on('click', '.right-x', singleBacktoView)
+  $('.content').on('click', '.edit-comment', onEditSingleComment)
 }
 
 module.exports = {
   addHandlers,
-  onGetBlogsTimeout
+  onGetBlogsTimeout,
+  onGetSingleBlog
 }

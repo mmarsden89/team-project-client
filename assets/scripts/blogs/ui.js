@@ -79,6 +79,12 @@ const singleBlog = function (data) {
   $('.content').html(showSingleBlog)
 }
 
+const showCommentUpdateForm = function (event) {
+  console.log(event.target)
+  store.currentUpdate = $(event.target).data('edit-comment')
+  console.log(store.currentUpdate)
+}
+
 module.exports = {
   getBlogSuccess,
   getBlogFailure,
@@ -92,5 +98,6 @@ module.exports = {
   blogsBack,
   blogUpdateButtonClick,
   onOpen,
-  singleBlog
+  singleBlog,
+  showCommentUpdateForm
 }

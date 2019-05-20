@@ -50,10 +50,6 @@ const onDestroyCommentFailure = function (data) {
   $('#user-div').fadeOut(500)
 }
 
-const showCommentUpdateForm = function (event) {
-  store.currentUpdate = $(event.target).data('comment')
-}
-
 module.exports = {
   getCommentSuccess,
   getCommentFailure,
@@ -62,6 +58,5 @@ module.exports = {
   onUpdateCommentSuccess,
   onUpdateCommentFailure,
   onDestroyCommentSuccess,
-  onDestroyCommentFailure,
-  showCommentUpdateForm
+  onDestroyCommentFailure
 }
