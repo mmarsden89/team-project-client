@@ -19,6 +19,7 @@ const onNewComment = function (event) {
     .then(ui.onCreateCommentSuccess)
     .catch(ui.onCreateCommentFailure)
   api.getComments()
+  setTimeout(getSingleBlogCommentUpdate, 500)
 }
 
 const getSingleBlogCommentUpdate = function () {
