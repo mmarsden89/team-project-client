@@ -51,10 +51,6 @@ const onUpdateBlogFailure = function (data) {
   $('#user-div').fadeOut(8000)
 }
 
-const blogUpdateButtonClick = function () {
-  event.preventDefault()
-}
-
 const onDestroyBlogSuccess = function (data) {
   $('#user-div').fadeIn(50)
   $('#user-div').html('Your blog has been destroyed!')
@@ -97,7 +93,6 @@ module.exports = {
   onDestroyBlogFailure,
   showBlogs,
   blogsBack,
-  blogUpdateButtonClick,
   onOpen,
   singleBlog,
   showCommentUpdateForm

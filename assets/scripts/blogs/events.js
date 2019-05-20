@@ -21,14 +21,21 @@ const onNewBlog = function (event) {
   ui.showBlogs()
 }
 
+const onUpdateBlogTimeout = function () {
+  api.getSingleBlog(store.currentBlog)
+    .then(ui.singleBlog)
+    .then(store.currentBlog = null)
+}
+
 const onUpdateBlog = function (event) {
   event.preventDefault()
+  store.updateBlog = null
   const id = $(event.target).data('blog')
   const data = getFormFields(event.target)
   api.updateBlog(data, id)
     .then(ui.onUpdateBlogSuccess)
     .catch(ui.onUpdateBlogFailure)
-  api.getBlogs()
+  setTimeout(onUpdateBlogTimeout, 250)
 }
 
 const onDestroyBlog = function (event) {
@@ -71,13 +78,21 @@ const onEditSingleComment = function (event) {
     .then(ui.singleBlog)
 }
 
+const blogUpdateButtonClick = function (event) {
+  store.updateBlog = $(event.target).data('edit-blog')
+  api.getSingleBlog(store.currentBlog)
+    .then(ui.singleBlog)
+}
+
+
 const addHandlers = function (event) {
   window.setTimeout(ui.onOpen, 1000)
+  $('.update-form').hide()
   $('.blog-create-btn').on('click', onGetBlogsTimeout)
   $('.content').on('submit', '.update-form', onUpdateBlog)
   $('#create-blog-form').on('submit', onNewBlog)
   $('.content').on('click', '.blog-delete', onDestroyBlog)
-  $('.content').on('click', '.blog-update', ui.blogUpdateButtonClick)
+  $('.content').on('click', '.edit-blog', blogUpdateButtonClick)
   $('.content').on('click', '.view-comments', onGetSingleBlog)
   $('.content').on('click', '.right-x', singleBacktoView)
   $('.content').on('click', '.edit-comment', onEditSingleComment)

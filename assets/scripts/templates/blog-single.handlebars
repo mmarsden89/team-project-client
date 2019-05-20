@@ -3,18 +3,19 @@
       <h5 class="card-title">{{data.blog.title}}
       <span class="card-title-span">by: {{data.blog.owner}} - {{howLongAgo data.blog.createdAt}} {{#if (blogOwned data.blog.owner)}} <a href="#" data-edit-blog="{{data.blog._id}}" class="edit-blog">(edit)</a> <a href="#" data-delete-blog="{{data.blog._id}}" class="blog-delete">(delete)</a>{{/if}}</span></h5>
       <div id="card-display" class="card-body">
-        <p class="card-text blog-text">{{data.blog.text}}</p>
-      </div>
-      <div id="loggedInButtonWrapper" class="loggedInButtonWrapper">
-        {{#if (blogOwned data.blog.owner)}}
-        <div>
-          <button class="button">update</button>
+        {{#if (blogUpdateClicked data.blog._id)}}
+        <div id="update-form-div">
           <form data-blog="{{data.blog._id}}" class='update-form'>
-            <input type="text" name="blog[title]" placeholder="old title" class="update-blog-form">
-            <input type="text" name="blog[text]" placeholder="old text" class="update-blog-form">
+            <textarea type="text" name="blog[text]" class="update-blog-form" rows="4" cols="100">{{data.blog.text}}</textarea>
             <input type="submit" class="button">
           </form>
         </div>
+        {{else}}
+        <p class="card-text blog-text">{{data.blog.text}}</p>
+        {{/if}}
+      </div>
+      <div id="loggedInButtonWrapper" class="loggedInButtonWrapper">
+        {{#if (blogOwned data.blog.owner)}}
       {{/if}}
     </div>
   </div>
