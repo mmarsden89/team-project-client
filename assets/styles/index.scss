@@ -132,7 +132,7 @@ hr {
 }
 
 .comment-text-single-view {
-  margin: 5px 0 0 20px;
+  margin: 5px 0 5px 20px;
 }
 
 .comment-single-view {
@@ -175,6 +175,11 @@ hr {
   margin-bottom: 25px;
 }
 
+.edited-comment {
+  font-size: 12px;
+  margin: 0;
+}
+
 .login-form,
 .sign-up-wrap {
   display: flex;
@@ -198,6 +203,11 @@ textarea, .blog-title-create {
 
 .tiny {
   width: 500px;
+}
+
+.update-comment-textfield {
+  border-radius: 5px;
+  margin: 0 0 10px 10px;
 }
 .view-comments {
   text-align: right;

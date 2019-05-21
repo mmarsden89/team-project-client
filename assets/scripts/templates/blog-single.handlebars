@@ -29,10 +29,11 @@
     {{/if}}
     <div class="comment-section">
       {{#each data.comments as |comment|}}
-        <span class="comment-single-view"><p class="p-single-view">{{comment.owner}} - {{howLongAgo comment.createdAt}} {{#if (commentOwned comment.owner)}} <a href="#" data-edit-comment="{{comment._id}}" class="edit-comment">(edit)</a> <a href="#" data-delete-comment="{{comment._id}}" class="comment-delete">(delete)</a>{{/if}}</p></span>
+        <span class="comment-single-view"><p class="p-single-view" title="created by: {{comment.owner}} at: {{convertTime comment.createdAt}}">{{comment.owner}} - {{howLongAgo comment.createdAt}} {{#if (createdVsUpdated comment)}}
+          <span title="updated at: {{convertTime comment.updatedAt}}" class="edited-comment">*</span>{{/if}} {{#if (commentOwned comment.owner)}} <a href="#" data-edit-comment="{{comment._id}}" class="edit-comment">(edit)</a> <a href="#" data-delete-comment="{{comment._id}}" class="comment-delete">(delete)</a>{{/if}}</p></span>
         {{#if (commentUpdateClicked comment._id)}}
         <form data-comment-update={{comment._id}} class="update-form-comment">
-        <input type="text" name="text">
+        <input type="text" name="text" class="update-comment-textfield">
         <input type="submit" class="button">
       </form>
         {{else}}
