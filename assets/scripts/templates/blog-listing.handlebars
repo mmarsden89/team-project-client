@@ -2,15 +2,15 @@
   {{#if (loggedIn)}}
   <section data-blog="{{blog._id}}">
     <div class="card" style="width: 1000px;">
+      <h5 class="card-title">{{blog.title}}
+      <span class="card-title-span">by: {{blog.owner}} - {{howLongAgo blog.createdAt}}</span></h5>
       <div id="card-display" class="card-body">
-        <h5 class="card-title">{{blog.title}}</h5>
-        <p>by: {{blog.owner.email}} at {{blog.createdAt}}</p>
         <p class="card-text blog-text">{{blog.text}}</p>
         </div>
       <div id="loggedInButtonWrapper" class="loggedInButtonWrapper">
-
         {{#if (blogOwned blog.owner._id)}}
         <div>
+          <button class="button">update</button>
           <form data-blog="{{blog._id}}" class='update-form'>
             <input type="text" name="blog[title]" placeholder="old title" class="update-blog-form">
             <input type="text" name="blog[text]" placeholder="old text" class="update-blog-form">
@@ -20,33 +20,9 @@
         </div>
       {{/if}}
   </div>
-  <div class="comment-list">
-    <form data-blog="{{blog._id}}" class="create-comment-form">
-      <input type="text" name="comment[text]" placeholder="comment here" maxlength="65">
-      <input type="submit" class="button">
-    </form>
+    <div class="view-comments" data-blog-comment="{{blog._id}}"><a href="#">view comments({{blog.comments.length}})</a></div>
   </div>
   <div>
-  {{#each ../comments as |comment|}}
-  {{#if (commentBelongsTo blog._id comment.blog)}}
-  <div data-id="{{comment._id}}">
-    <div id="{{this._id}}" class="tiny">
-      <div id="comment-text-show"><h6>{{this.owner.email}}</h6><p>{{this.text}}</p></div>
-      {{#if (commentOwned this.owner._id)}}
-        {{#if (commentUpdateClicked this._id)}}
-        <form data-comment="{{comment._id}}" class='update-form-comment'>
-          <input type="text" name="comment[text]" placeholder="old comment" maxlength="65">
-          <input type="submit" class="button">
-          <button data-comment="{{comment._id}}" class="btn btn-danger comment-delete button">delete</button>
-        </form>
-        {{else}}
-          <button data-comment="{{comment._id}}" id="{{comment._id}}" class="comment-update button">update</button>
-          <button data-comment="{{comment._id}}" class="comment-delete button">delete</button>
-          {{/if}}
-          {{/if}}
-        </div>
-        {{/if}}
-        {{/each}}
       </div>
     </div>
   </div>

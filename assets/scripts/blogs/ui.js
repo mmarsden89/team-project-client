@@ -1,6 +1,7 @@
 const store = require('./../store')
 const showBlogsTemplate = require('../templates/blog-listing.handlebars')
 const showBlogOpenTemplate = require('../templates/blog-open.handlebars')
+const showSingleBlogTemplate = require('../templates/blog-single.handlebars')
 
 const getBlogSuccess = function (data, comments) {
   store.blogs = data.blogs
@@ -10,6 +11,7 @@ const showBlogs = function () {
   const showBlogsHtml = showBlogsTemplate({ blogs: store.blogs, comments: store.comments })
   $('.content').html(showBlogsHtml)
   $('#create-blog-form').fadeIn(500)
+  $('#new-blog-section').fadeIn(500)
   $('.content').show()
 }
 
@@ -49,10 +51,6 @@ const onUpdateBlogFailure = function (data) {
   $('#user-div').fadeOut(8000)
 }
 
-const blogUpdateButtonClick = function () {
-  event.preventDefault()
-}
-
 const onDestroyBlogSuccess = function (data) {
   $('#user-div').fadeIn(50)
   $('#user-div').html('Your blog has been destroyed!')
@@ -66,8 +64,22 @@ const onDestroyBlogFailure = function (data) {
 }
 
 const onOpen = function () {
+  $('#new-blog-section').hide()
   const showBlogOpenHtml = showBlogOpenTemplate({ blogs: store.blogs, comments: store.comments })
   $('.content').html(showBlogOpenHtml)
+}
+
+const singleBlog = function (data) {
+  console.log('$$$$$$$$$$')
+  console.log(data)
+  console.log('$$$$$$$$$$')
+  $('#new-blog-section').hide()
+  const showSingleBlog = showSingleBlogTemplate({ data: data })
+  $('.content').html(showSingleBlog)
+}
+
+const showCommentUpdateForm = function (event) {
+  store.currentUpdate = $(event.target).data('edit-comment')
 }
 
 module.exports = {
@@ -81,6 +93,7 @@ module.exports = {
   onDestroyBlogFailure,
   showBlogs,
   blogsBack,
-  blogUpdateButtonClick,
-  onOpen
+  onOpen,
+  singleBlog,
+  showCommentUpdateForm
 }

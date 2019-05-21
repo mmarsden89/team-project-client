@@ -30,7 +30,11 @@ const updateComment = function (data, id) {
     url: config.apiUrl + `/comments/${id}`,
     method: 'PATCH',
     headers: {Authorization: 'Token token=' + store.user.token},
-    data
+    data: {
+      comment: {
+        'text': `${data.text}`
+      }
+    }
   })
 }
 
