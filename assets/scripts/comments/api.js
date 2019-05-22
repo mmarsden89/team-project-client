@@ -19,7 +19,8 @@ const createComment = function (id, data) {
     data: {
       comment: {
         'blog': `${id}`,
-        'text': `${data.comment.text}`
+        'text': `${data.comment.text}`,
+        'username': `${store.user.username}`
       }
     }
   })

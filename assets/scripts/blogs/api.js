@@ -28,7 +28,8 @@ const createBlog = function (data) {
     data: {
       blog: {
         'title': `${data.blog.title}`,
-        'text': `${data.blog.text}`
+        'text': `${data.blog.text}`,
+        'username': `${store.user.username}`
       }
     }
   })
