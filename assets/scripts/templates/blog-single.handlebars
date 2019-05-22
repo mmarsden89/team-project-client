@@ -1,10 +1,10 @@
   <section data-blog="{{blog._id}}">
     <div class="card" style="width: 1000px;">
       <h5 class="card-title">{{data.blog.title}}
-        {{log data.blog}}
-        {{log data.username}}
         {{#each data.username as |username|}}
-      <span class="card-title-span">by: {{username.username}} - {{howLongAgo data.blog.createdAt}} {{#if (blogOwned data.blog.owner)}} <a href="#" data-edit-blog="{{data.blog._id}}" class="edit-blog">(edit)</a> <a href="#" data-delete-blog="{{data.blog._id}}" class="blog-delete">(delete)</a>{{/if}}</span></h5>
+        {{log 'iiiii'}}
+        {{log blog}}
+      <span class="card-title-span">by: {{username.username}} - {{howLongAgo data.blog.createdAt}} {{#if (blogOwned username._id)}} <a href="#" data-edit-blog="{{../data.blog._id}}" class="edit-blog">(edit)</a> <a href="#" data-delete-blog="{{../data.blog._id}}" class="blog-delete">(delete)</a>{{/if}}</span></h5>
       {{/each}}
       <div id="card-display" class="card-body">
         {{#if (blogUpdateClicked data.blog._id)}}
@@ -34,7 +34,7 @@
     <div class="comment-section">
       {{#each data.comments as |comment|}}
         <span class="comment-single-view"><p class="p-single-view" title="created by: {{comment.owner.username}} at: {{convertTime comment.createdAt}}">{{comment.owner.username}} - {{howLongAgo comment.createdAt}} {{#if (createdVsUpdated comment)}}
-          <span title="updated at: {{convertTime comment.updatedAt}}" class="edited-comment">*</span>{{/if}} {{#if (commentOwned comment.owner)}} <a href="#" data-edit-comment="{{comment._id}}" class="edit-comment">(edit)</a> <a href="#" data-delete-comment="{{comment._id}}" class="comment-delete">(delete)</a>{{/if}}</p></span>
+          <span title="updated at: {{convertTime comment.updatedAt}}" class="edited-comment">*</span>{{/if}} {{#if (commentOwned comment.owner._id)}} <a href="#" data-edit-comment="{{comment._id}}" class="edit-comment">(edit)</a> <a href="#" data-delete-comment="{{comment._id}}" class="comment-delete">(delete)</a>{{/if}}</p></span>
         {{#if (commentUpdateClicked comment._id)}}
         <form data-comment-update={{comment._id}} class="update-form-comment">
         <input type="text" name="text" class="update-comment-textfield">

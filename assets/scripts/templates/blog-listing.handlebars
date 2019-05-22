@@ -8,19 +8,6 @@
       <div id="card-display" class="card-body">
         <p class="card-text blog-text">{{blog.text}}</p>
         </div>
-      <div id="loggedInButtonWrapper" class="loggedInButtonWrapper">
-        {{#if (blogOwned blog.owner._id)}}
-        <div>
-          <button class="button">update</button>
-          <form data-blog="{{blog._id}}" class='update-form'>
-            <input type="text" name="blog[title]" placeholder="old title" class="update-blog-form">
-            <input type="text" name="blog[text]" placeholder="old text" class="update-blog-form">
-            <input type="submit" class="button">
-          </form>
-          <button data-blog="{{blog._id}}" class="btn btn-danger blog-delete button">delete</button>
-        </div>
-      {{/if}}
-  </div>
     <div class="view-comments" data-blog-comment="{{blog._id}}"><a href="#">view comments({{blog.comments.length}})</a></div>
   </div>
   <div>

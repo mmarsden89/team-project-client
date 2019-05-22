@@ -40,10 +40,11 @@ const onUpdateBlog = function (event) {
 
 const onDestroyBlog = function (event) {
   event.preventDefault()
+  console.log(event.target)
   const id = $(event.target).data('delete-blog')
   api.destroyBlog(id)
-    .then(ui.onDestroyBlogSuccess)
     .then(onGetBlogs)
+    .then(ui.onDestroyBlogSuccess)
     .catch(ui.onDestroyBlogFailure)
 }
 
@@ -63,10 +64,10 @@ const onGetSingleBlog = function (event) {
 const singleBacktoView = function (event) {
   event.preventDefault()
   if (store.user !== undefined) {
-    ui.showBlogs()
+    onGetBlogs()
     store.currentUpdate = null
   } else {
-    ui.onOpen()
+    onGetBlogs()
     store.currentUpdate = null
   }
 }
@@ -83,7 +84,6 @@ const blogUpdateButtonClick = function (event) {
   api.getSingleBlog(store.currentBlog)
     .then(ui.singleBlog)
 }
-
 
 const addHandlers = function (event) {
   window.setTimeout(ui.onOpen, 1000)
