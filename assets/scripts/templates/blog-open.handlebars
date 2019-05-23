@@ -2,7 +2,7 @@
 {{#each blog.username as |username|}}
   {{#if (notLoggedIn)}}
   <section data-blog="{{blog._id}}">
-    <div class="card" style="width: 1000px;">
+    <div class="card">
       <h5 class="card-title">{{blog.title}}
       <span class="card-title-span">by: {{username.username}} - {{howLongAgo blog.createdAt}}</span></h5>
       <div id="card-display" class="card-body">
@@ -10,9 +10,6 @@
       </div>
       <div class="view-comments" data-blog-comment="{{blog._id}}"><a href="#">view comments({{blog.comments.length}})</a></div>
     </div>
-    </div>
-    </div>
-  </div>
   </section>
   {{/if}}
   {{/each}}

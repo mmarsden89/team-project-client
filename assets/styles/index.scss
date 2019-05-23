@@ -120,7 +120,6 @@ hr {
   border-radius: 5px;
   margin-bottom: 30px;
   margin-top: 30px;
-  max-width: 1000px;
 }
 
 .card-body {
@@ -199,6 +198,20 @@ hr {
   flex-direction: row;
 }
 
+.like-div {
+  height: 22px;
+  margin-left: 10px;
+}
+
+
+.like-comment-container {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
 .loggedInButtonWrapper {
   align-items: center;
   display: flex;
@@ -222,7 +235,9 @@ textarea, .blog-title-create {
   border-radius: 5px;
   margin: 0 0 10px 10px;
 }
+
 .view-comments {
+  margin-right: 10px;
   text-align: right;
 }
 
@@ -263,4 +278,14 @@ textarea, .blog-title-create {
   display: flex;
   flex-direction: column;
   padding: 20px 0;
+}
+
+@media only screen and (max-width: 500px) {
+  section {
+    width: 100vw;
+  }
+
+  .card {
+    width: 95vw !important;
+  }
 }
