@@ -52,10 +52,23 @@ const destroyBlog = function (id) {
   })
 }
 
+const smashThatLike = (id) => {
+  return $.ajax({
+    url: config.apiUrl + `/likes/${id}`,
+    method: 'PATCH',
+    headers: { Authorization: 'Token token=' + store.user.token },
+    data: {
+      blog: {
+        likes: store.user._id
+      }}
+  })
+}
+
 module.exports = {
   getBlogs,
   createBlog,
   updateBlog,
   destroyBlog,
-  getSingleBlog
+  getSingleBlog,
+  smashThatLike
 }

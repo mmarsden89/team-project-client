@@ -8,6 +8,13 @@
       <div id="card-display" class="card-body">
         <p class="card-text blog-text">{{blog.text}}</p>
         </div>
+          <div>
+            {{#if (smashedLike blog.likes)}}
+            <i data-like="{{blog._id}}" class="fas fa-thumbs-up"></i>
+            {{else}}
+            <i data-like="{{blog._id}}" class="far fa-thumbs-up"></i>
+            {{/if}}
+        </div>
     <div class="view-comments" data-blog-comment="{{blog._id}}"><a href="#">view comments({{blog.comments.length}})</a></div>
   </div>
   <div>

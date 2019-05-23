@@ -85,6 +85,14 @@ const blogUpdateButtonClick = function (event) {
     .then(ui.singleBlog)
 }
 
+const onSmashThatLike = function (event) {
+  const id = $(event.target).data('like')
+  api.smashThatLike(id)
+    .then(onGetBlogs)
+  // $(event.target).css('display', 'none')
+  // $('.fas').css('display', 'block')
+}
+
 const addHandlers = function (event) {
   window.setTimeout(ui.onOpen, 1000)
   $('.update-form').hide()
@@ -96,6 +104,7 @@ const addHandlers = function (event) {
   $('.content').on('click', '.view-comments', onGetSingleBlog)
   $('.content').on('click', '.right-x', singleBacktoView)
   $('.content').on('click', '.edit-comment', onEditSingleComment)
+  $('.content').on('click', '.far', onSmashThatLike)
 }
 
 module.exports = {
