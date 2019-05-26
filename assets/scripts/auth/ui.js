@@ -22,7 +22,7 @@ const signUpFailure = function (data) {
 
 const signInSuccess = function (data) {
   console.log('%%%%%%%', data)
-  $('#new-blog-section').show()
+  // $('#new-blog-section').show()
   store.user = data.user
   commentEvents.onGetComments()
   $('form').trigger('reset')
@@ -62,7 +62,7 @@ const changePasswordFailure = function (data) {
 }
 
 const signOutSuccess = function () {
-  $('#new-blog-section').hide()
+  // $('#new-blog-section').hide()
   store.user.token = null
   store.user = undefined
   $('#account-buttons').fadeOut(500)

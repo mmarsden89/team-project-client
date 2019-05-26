@@ -1,16 +1,21 @@
-{{#each blogs as |blog|}}
-{{#each blog.username as |username|}}
-  {{#if (notLoggedIn)}}
   <section data-blog="{{blog._id}}">
+    {{#each blogs as |blog|}}
+    {{#each blog.username as |username|}}
+    {{#if (notLoggedIn)}}
     <div class="card">
       <h5 class="card-title">{{blog.title}}
       <span class="card-title-span">by: {{username.username}} - {{howLongAgo blog.createdAt}}</span></h5>
       <div id="card-display" class="card-body">
         <p class="card-text blog-text">{{blog.text}}</p>
       </div>
+      <div class="like-comment-container">
+      <div class="like-div">
+        <p>{{blog.likes.length}} likes</p>
+      </div>
       <div class="view-comments" data-blog-comment="{{blog._id}}"><a href="#">view comments({{blog.comments.length}})</a></div>
     </div>
-  </section>
+  </div>
   {{/if}}
   {{/each}}
-{{/each}}
+  {{/each}}
+  </section>

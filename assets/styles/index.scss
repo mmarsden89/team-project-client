@@ -18,7 +18,7 @@ nav button:hover, .button:hover {
 }
 
 body {
-  background-color: rgb(159, 181, 221);
+  background-color: rgb(93, 99, 111);
 }
 
 h1 {
@@ -27,7 +27,7 @@ h1 {
 }
 
 nav h1:hover {
-  color: rgba(139, 175, 219, 0.5);
+  color: rgba(139, 175, 219, 0.9);
 }
 
 .account-buttons {
@@ -70,18 +70,25 @@ nav input {
   border-color: rgba(80, 80 , 80 , .8)
 }
 
-section {
+section, .single-view-blog {
   align-items: center;
-  background-color: rgba(48, 73, 129, .7);
-  border-bottom: 8px solid rgba(48, 73, 129, .7);
-  border-left: 8px solid rgba(48, 73, 129, .7);
-  border-radius: 10px;
+  background-color: rgba(29, 31, 34, 0.7);
+  border-bottom: 8px solid rgba(29, 31, 34, 0.7);
+  border-left: 8px solid rgba(29, 31, 34, 0.7);
+  border-radius: 5px;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   display: flex;
-  flex-direction: column;
   justify-content: center;
   margin: 20px auto;
-  width: 80vw;
+  width: 95vw;
+}
+
+section {
+  flex-direction: column-reverse;
+}
+
+.single-view-blog {
+  flex-direction: column;
 }
 
 .section-static {
@@ -107,7 +114,8 @@ hr {
 }
 
 .right-x:hover {
-  background-color: rgb(150, 170, 208);
+  background-color: rgba(66, 70, 77, .6);
+  text-decoration: none;
 }
 
 .right-x {
@@ -118,8 +126,8 @@ hr {
 .card {
   background-color: rgb(205, 210, 240);
   border-radius: 5px;
-  margin-bottom: 30px;
-  margin-top: 30px;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .card-body {
@@ -149,7 +157,7 @@ hr {
 }
 
 .card {
-  width: 70vw !important;
+  width: 90vw !important;
 }
 
 #comment-text-show h1,

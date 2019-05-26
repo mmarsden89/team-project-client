@@ -1,7 +1,8 @@
-{{#each blogs as |blog|}}
-  {{#each blog.username as |username|}}
-  {{#if (loggedIn)}}
+
   <section data-blog="{{blog._id}}">
+    {{#each blogs as |blog|}}
+    {{#each blog.username as |username|}}
+    {{#if (loggedIn)}}
     <div class="card" style="width: 1000px;">
       <h5 class="card-title">{{blog.title}}
       <span class="card-title-span">by: {{username.username}} - {{howLongAgo blog.createdAt}}</span></h5>
@@ -24,11 +25,24 @@
     <div class="view-comments" data-blog-comment="{{blog._id}}"><a href="#">view comments({{blog.comments.length}})</a></div>
   </div>
   </div>
-  <div>
-      </div>
-    </div>
-  </div>
+  {{/if}}
+  {{/each}}
+  {{/each}}
     </section>
-    {{/if}}
-    {{/each}}
-    {{/each}}
+    <section id="new-blog-section" class="section-static">
+      <div class="card" style="width: 1000px;">
+        <div id="card-display" class="card-body">
+          <form id="create-blog-form" class="creating-blog wrapper">
+            <input type="text" name="blog[title]" placeholder="Title" required="required" class="blog-title-create">
+            <textarea name="blog[text]" placeholder="Text" required="required" class="blog-text-create" rows="4" cols="50" maxlength="500"></textarea>
+            <input type="submit" class="blog-create-btn button" value="Create Blog">
+          </form>
+          <div>
+            <h1 class="welcome">Welcome</h1>
+            <h3 class="welcome3">to bloggle</h3>
+            <h5 class="welcome5">got something to say?</h5>
+            <h1 class="welcome-close">SAY IT!</h1>
+          </div>
+        </div>
+      </div>
+    </section>

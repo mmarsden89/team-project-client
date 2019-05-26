@@ -10,8 +10,8 @@ const getBlogSuccess = function (data, comments) {
 const showBlogs = function () {
   const showBlogsHtml = showBlogsTemplate({ blogs: store.blogs, comments: store.comments })
   $('.content').html(showBlogsHtml)
-  $('#create-blog-form').fadeIn(500)
-  $('#new-blog-section').fadeIn(500)
+  // $('#create-blog-form').fadeIn(500)
+  // $('#new-blog-section').fadeIn(500)
   $('.content').show()
 }
 
@@ -64,7 +64,7 @@ const onDestroyBlogFailure = function (data) {
 }
 
 const onOpen = function () {
-  $('#new-blog-section').hide()
+  // $('#new-blog-section').hide()
   const showBlogOpenHtml = showBlogOpenTemplate({ blogs: store.blogs, comments: store.comments })
   $('.content').html(showBlogOpenHtml)
 }
@@ -73,7 +73,7 @@ const singleBlog = function (data) {
   console.log('$$$$$$$$$$')
   console.log(data)
   console.log('$$$$$$$$$$')
-  $('#new-blog-section').hide()
+  // $('#new-blog-section').hide()
   const showSingleBlog = showSingleBlogTemplate({ data: data })
   $('.content').html(showSingleBlog)
 }
