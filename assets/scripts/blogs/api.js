@@ -11,6 +11,15 @@ const getBlogs = function () {
   })
 }
 
+const getSingleBlog = function (id) {
+  return $.ajax({
+    url: config.apiUrl + `/blogs/${id}`,
+    method: 'GET',
+    headers: {
+    }
+  })
+}
+
 const createBlog = function (data) {
   return $.ajax({
     url: config.apiUrl + '/blogs',
@@ -19,7 +28,8 @@ const createBlog = function (data) {
     data: {
       blog: {
         'title': `${data.blog.title}`,
-        'text': `${data.blog.text}`
+        'text': `${data.blog.text}`,
+        'username': `${store.user.username}`
       }
     }
   })
@@ -42,9 +52,23 @@ const destroyBlog = function (id) {
   })
 }
 
+const smashThatLike = (id) => {
+  return $.ajax({
+    url: config.apiUrl + `/likes/${id}`,
+    method: 'PATCH',
+    headers: { Authorization: 'Token token=' + store.user.token },
+    data: {
+      blog: {
+        likes: store.user._id
+      }}
+  })
+}
+
 module.exports = {
   getBlogs,
   createBlog,
   updateBlog,
-  destroyBlog
+  destroyBlog,
+  getSingleBlog,
+  smashThatLike
 }

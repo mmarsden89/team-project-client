@@ -19,7 +19,8 @@ const createComment = function (id, data) {
     data: {
       comment: {
         'blog': `${id}`,
-        'text': `${data.comment.text}`
+        'text': `${data.comment.text}`,
+        'username': `${store.user.username}`
       }
     }
   })
@@ -30,7 +31,11 @@ const updateComment = function (data, id) {
     url: config.apiUrl + `/comments/${id}`,
     method: 'PATCH',
     headers: {Authorization: 'Token token=' + store.user.token},
-    data
+    data: {
+      comment: {
+        'text': `${data.text}`
+      }
+    }
   })
 }
 

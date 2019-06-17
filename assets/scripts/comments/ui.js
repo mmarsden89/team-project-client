@@ -13,12 +13,13 @@ const getCommentSuccess = function (data) {
 }
 
 const onCreateCommentSuccess = function (data) {
+  console.log('comment data is ', data)
   $('form').trigger('reset')
   $('#user-div').html('Your comment has been added!')
   $('#user-div').fadeOut(500)
 }
 
-const onCreateCommentFailure = function (data) {
+const onCreateCommentFailure = function () {
   $('#user-div').fadeIn(500)
   $('#user-div').html('Something went wrong, please try again!')
   $('#user-div').fadeOut(500)
@@ -49,10 +50,6 @@ const onDestroyCommentFailure = function (data) {
   $('#user-div').fadeOut(500)
 }
 
-const showCommentUpdateForm = function (event) {
-  store.currentUpdate = $(event.target).data('comment')
-}
-
 module.exports = {
   getCommentSuccess,
   getCommentFailure,
@@ -61,6 +58,5 @@ module.exports = {
   onUpdateCommentSuccess,
   onUpdateCommentFailure,
   onDestroyCommentSuccess,
-  onDestroyCommentFailure,
-  showCommentUpdateForm
+  onDestroyCommentFailure
 }

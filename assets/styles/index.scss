@@ -1,5 +1,5 @@
 @import '~bootstrap/scss/bootstrap';
-@import url('https://fonts.googleapis.com/css?family=Righteous');
+@import url('https://fonts.googleapis.com/css?family=Changa:400,800|Righteous&display=swap');
 
 nav button, .button {
   border-radius: 5px;
@@ -18,7 +18,7 @@ nav button:hover, .button:hover {
 }
 
 body {
-  background-color: #9fb5dd;
+  background-color: rgb(93, 99, 111);
 }
 
 h1 {
@@ -26,12 +26,26 @@ h1 {
   font-family: 'Righteous', cursive;
 }
 
+nav h1:hover {
+  color: rgba(139, 175, 219, 0.9);
+}
+
+.account-buttons {
+  margin-right: 10px;
+}
+
 .h1Title {
   margin-left: 10px;
 }
 
 .card-title {
-  color: #00B8DE;
+  margin: 10px 0 0 10px;
+  color: rgba(42, 58, 78, 0.9);
+}
+
+.card-title-span {
+  margin-left: 10px;
+  font-size: 13px;
 }
 
 nav {
@@ -56,40 +70,94 @@ nav input {
   border-color: rgba(80, 80 , 80 , .8)
 }
 
-section {
+section, .single-view-blog {
   align-items: center;
-  background-color: rgba(48, 73, 129, .7);
-  border-bottom: 8px solid rgba(48, 73, 129, .7);
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  border-left: 8px solid rgba(48, 73, 129, .7);
-  border-radius: 10px;
-  border-top-left-radius: 10px;
+  background-color: rgba(29, 31, 34, 0.7);
+  border-bottom: 8px solid rgba(29, 31, 34, 0.7);
+  border-left: 8px solid rgba(29, 31, 34, 0.7);
+  border-radius: 5px;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   display: flex;
-  flex-direction: column;
   justify-content: center;
   margin: 20px auto;
-  width: 80vw;
+  width: 95vw;
+}
+
+section {
+  flex-direction: column-reverse;
+}
+
+.single-view-blog {
+  flex-direction: column;
+}
+
+.section-static {
+  flex-direction: row;
 }
 
 .blog-text-create {
-  height: 120px;
   margin: 20px 0;
+  resize: none;
+}
+
+hr {
+  background-color: black;
+  color: black;
+}
+
+.back-to-view {
+  text-align: right;
+  width: 100%;
+  font-size: 25px;
+  position: sticky;
+  top: 57px;
+}
+
+.right-x:hover {
+  background-color: rgba(66, 70, 77, .6);
+  text-decoration: none;
+}
+
+.right-x {
+  border-bottom-left-radius: 10px;
+  padding: 5px 25px 10px 25px;
 }
 
 .card {
   background-color: rgb(205, 210, 240);
   border-radius: 5px;
-  margin-bottom: 30px;
-  margin-top: 30px;
-  max-width: 1000px;
-  min-height: 290px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap-reverse;
 }
 
 .comments-text {
   color: white;
   font-size: 10px;
+}
+
+.comment-text-single-view {
+  margin: 5px 0 5px 20px;
+}
+
+.comment-single-view {
+  color: rgba(42, 58, 78, 0.9);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.p-single-view {
+  margin: 10px 0 0 10px;
+}
+
+.card {
+  width: 90vw !important;
 }
 
 #comment-text-show h1,
@@ -107,10 +175,49 @@ section {
   justify-content: center;
 }
 
+.comment-section {
+  background-color: rgb(205, 210, 240);
+  border-radius: 5px;
+  width: 70vw;
+  margin-bottom: 30px;
+}
+
+.create-comment-form {
+  margin-bottom: 25px;
+}
+
+.edited-comment {
+  font-size: 12px;
+  margin: 0;
+}
+
+.far, .fas {
+  color: rgba(42, 58, 78, 0.9);
+  font-size: 16px;
+}
+
+.far:hover , .fas:hover{
+  font-size: 17px;
+}
+
 .login-form,
 .sign-up-wrap {
   display: flex;
   flex-direction: row;
+}
+
+.like-div {
+  height: 22px;
+  margin-left: 10px;
+}
+
+
+.like-comment-container {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px;
 }
 
 .loggedInButtonWrapper {
@@ -120,13 +227,73 @@ section {
   justify-content: center;
 }
 
+textarea, .blog-title-create {
+  background: rgba(255, 255, 255, 0.5);
+  border:1px solid rgba(42, 58, 78, 0.9);
+  border-radius: 5px;
+  color: rgba(42, 58, 78, 0.9);
+  width: 100%;
+}
+
 .tiny {
   width: 500px;
 }
 
+.update-comment-textfield {
+  border-radius: 5px;
+  margin: 0 0 10px 10px;
+}
+
+.view-comments {
+  margin-right: 10px;
+  text-align: right;
+}
+
+.welcome {
+  font-size: 80px;
+  text-align: center;
+}
+
+.welcome3 {
+  color: rgba(78, 107, 143, .9);
+  font-family: 'Changa', sans-serif;
+  font-size: 50px;
+  letter-spacing: 7px;
+  margin-top: -24px;
+  text-align: center;
+  transform: scale(1.1, 1);
+}
+
+.welcome5 {
+  color: rgba(56, 78, 106, 0.9);
+  font-family: 'Changa', sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  margin-top: -15px;
+  text-align: center;
+}
+
+.welcome-close {
+  color: rgba(42, 58, 78, 0.9);
+  font-size: 80px;
+  letter-spacing: 7px;
+  margin-top: -17px;
+  text-align: center;
+}
+
 .wrapper {
-  align-items: center;
+  align-items: flex-start;
   display: flex;
   flex-direction: column;
   padding: 20px 0;
+}
+
+@media only screen and (max-width: 500px) {
+  section {
+    width: 100vw;
+  }
+
+  .card {
+    width: 95vw !important;
+  }
 }
