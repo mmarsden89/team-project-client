@@ -96,9 +96,9 @@ const onSmashThatLike = function (event) {
 const addHandlers = function (event) {
   window.setTimeout(ui.onOpen, 1000)
   $('.update-form').hide()
-  $('.blog-create-btn').on('click', onGetBlogsTimeout)
+  $('.content').on('click', '.blog-create-btn', onGetBlogsTimeout)
   $('.content').on('submit', '.update-form', onUpdateBlog)
-  $('#create-blog-form').on('submit', onNewBlog)
+  $('.content').on('submit', '#create-blog-form', onNewBlog)
   $('.content').on('click', '.blog-delete', onDestroyBlog)
   $('.content').on('click', '.edit-blog', blogUpdateButtonClick)
   $('.content').on('click', '.view-comments', onGetSingleBlog)
