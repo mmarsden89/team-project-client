@@ -71,7 +71,8 @@ const onOpen = function () {
 
 const singleBlog = function (data) {
   // $('#new-blog-section').hide()
-  const showSingleBlog = showSingleBlogTemplate({ data: data })
+  const showSingleBlog = showSingleBlogTemplate({ data: data, username: data.username[0] })
+  console.log(data)
   $('.content').html(showSingleBlog)
 }
 
