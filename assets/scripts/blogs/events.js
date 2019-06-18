@@ -48,7 +48,6 @@ const onUpdateBlog = function (event) {
 
 const onDestroyBlog = function (event) {
   event.preventDefault()
-  console.log(event.target)
   const id = $(event.target).data('delete-blog')
   api.destroyBlog(id)
     .then(onGetBlogs)

@@ -13,7 +13,6 @@ const getCommentSuccess = function (data) {
 }
 
 const onCreateCommentSuccess = function (data) {
-  console.log('comment data is ', data)
   $('form').trigger('reset')
   $('#user-div').html('Your comment has been added!')
   $('#user-div').fadeOut(500)

@@ -19,7 +19,6 @@ const signUpFailure = function (data) {
 }
 
 const signInSuccess = function (data) {
-  console.log('%%%%%%%', data)
   // $('#new-blog-section').show()
   store.user = data.user
   commentEvents.onGetComments()
