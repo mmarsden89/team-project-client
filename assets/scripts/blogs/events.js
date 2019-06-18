@@ -11,6 +11,14 @@ const onGetBlogs = function () {
     .catch(ui.getBlogFailure)
 }
 
+const onBackToBlogs = function () {
+  if (store.user) {
+    ui.showBlogs()
+  } else {
+    ui.onOpen()
+  }
+}
+
 const onNewBlog = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -73,7 +81,6 @@ const singleBacktoView = function (event) {
 }
 
 const onEditSingleComment = function (event) {
-  console.log('store.currentblog is!!!! ', store.currentBlog)
   store.currentUpdate = $(event.target).data('edit-comment')
   api.getSingleBlog(store.currentBlog)
     .then(ui.singleBlog)
@@ -95,6 +102,7 @@ const onSmashThatLike = function (event) {
 
 const addHandlers = function (event) {
   window.setTimeout(ui.onOpen, 1000)
+  $('.h1Title').on('click', onBackToBlogs)
   $('.update-form').hide()
   $('.content').on('click', '.blog-create-btn', onGetBlogsTimeout)
   $('.content').on('submit', '.update-form', onUpdateBlog)
