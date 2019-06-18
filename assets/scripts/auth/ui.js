@@ -8,16 +8,14 @@ const signUpSuccess = function (data) {
   $('#sign-up-form').hide()
   $('#sign-up-form').fadeOut(500)
   setTimeout(signInFade, 520)
-  $('#user-div').fadeIn(50)
   $('#user-div').html('Sucessfully signed up!')
-  $('#user-div').fadeOut(8000)
+  $('#user-div').fadeOut(2000)
 }
 
 const signUpFailure = function (data) {
   $('form').trigger('reset')
-  $('#user-div').fadeIn(50)
   $('#user-div').html('Something went wrong, please try again!')
-  $('#user-div').fadeOut(8000)
+  $('#user-div').fadeOut(2000)
 }
 
 const signInSuccess = function (data) {
@@ -27,9 +25,8 @@ const signInSuccess = function (data) {
   commentEvents.onGetComments()
   $('form').trigger('reset')
   $('#login-form').fadeOut(500)
-  $('#user-div').fadeIn(50)
   $('#user-div').html('Sucessfully signed in!')
-  $('#user-div').fadeOut(8000)
+  $('#user-div').fadeOut(2000)
   setTimeout(showAccountButtons, 525)
   blogEvents.onGetBlogsTimeout()
 }
@@ -40,25 +37,22 @@ const showAccountButtons = function () {
 
 const signInFailure = function (data) {
   $('form').trigger('reset')
-  $('#user-div').fadeIn(50)
   $('#user-div').html('Something went wrong, please try again!')
-  $('#user-div').fadeOut(8000)
+  $('#user-div').fadeOut(2000)
 }
 
 const changePasswordSuccess = function (data) {
   $('form').trigger('reset')
   $('#change-password').fadeOut(500)
   setTimeout(showAccountButtons, 520)
-  $('#user-div').fadeIn(50)
   $('#user-div').html('Your password has been changed!')
-  $('#user-div').fadeOut(8000)
+  $('#user-div').fadeOut(2000)
 }
 
 const changePasswordFailure = function (data) {
   $('form').trigger('reset')
-  $('#user-div').fadeIn(50)
   $('#user-div').html('Something went wrong, please try again!')
-  $('#user-div').fadeOut(8000)
+  $('#user-div').fadeOut(2000)
 }
 
 const signOutSuccess = function () {
@@ -67,9 +61,8 @@ const signOutSuccess = function () {
   store.user = undefined
   $('#account-buttons').fadeOut(500)
   setTimeout(signInFade, 520)
-  $('#user-div').fadeIn(50)
   $('#user-div').html('You signed out!')
-  $('#user-div').fadeOut(8000)
+  $('#user-div').fadeOut(2000)
   blogUi.onOpen()
 }
 
@@ -78,9 +71,8 @@ const signOutFailure = function () {
   store.user.token = null
   $('#account-buttons').fadeOut(500)
   setTimeout(signInFade, 520)
-  $('#user-div').fadeIn(50)
   $('#user-div').html('Something went wrong, please try again!')
-  $('#user-div').fadeOut(8000)
+  $('#user-div').fadeOut(2000)
 }
 
 const signUpBackUp = function () {
