@@ -1,7 +1,7 @@
   <section data-blog="{{blog._id}}" class="single-view-blog">
     <div class="card" style="width: 1000px;">
       <h5 class="card-title">{{data.blog.title}}
-      <span class="card-title-span">by: {{username.username}} - {{howLongAgo data.blog.createdAt}} {{#if (blogOwned username._id)}} <a href="#" data-edit-blog="{{../data.blog._id}}" class="edit-blog">(edit)</a> <a href="#" data-delete-blog="{{../data.blog._id}}" class="blog-delete">(delete)</a>{{/if}}</span></h5>
+      <span class="card-title-span">by: {{data.username.username}} - {{howLongAgo data.blog.createdAt}} {{#if (blogOwned data.blog.owner)}} <a href="#" data-edit-blog="{{../data.blog._id}}" class="edit-blog">(edit)</a> <a href="#" data-delete-blog="{{../data.blog._id}}" class="blog-delete">(delete)</a>{{/if}}</span></h5>
       <div id="card-display" class="card-body">
         {{#if (blogUpdateClicked data.blog._id)}}
         <div id="update-form-div">
